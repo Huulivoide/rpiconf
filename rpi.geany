@@ -1,0 +1,24 @@
+
+[indentation]
+indent_width=4
+indent_type=1
+indent_hard_tab_width=8
+detect_indent=false
+detect_indent_width=false
+indent_mode=2
+
+[project]
+name=rpi-config-editor
+base_path=/home/jesse/devel/coding/python/rpi-config-editor
+description=
+file_patterns=
+
+[long line marker]
+long_line_behaviour=1
+long_line_column=72
+
+[files]
+current_page=0
+
+[VTE]
+last_dir=/home/jesse

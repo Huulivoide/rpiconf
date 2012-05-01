@@ -1,0 +1,10 @@
+#This is comment
+arm_freq=800
+gpu_freq=250
+sdram_freq=400
+hdmi_mode=19
+sdtv_mode=2
+overscan_left=32
+overscan_right=32
+overscan_top=32
+overscan_bottom=32
