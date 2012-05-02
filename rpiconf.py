@@ -7,8 +7,8 @@ import os
 ##we can exclude them from the saved file
 ##if == 0
 class rpi_config:
-	arm_freq = 0  #Arm CPU core frequency
-	                #Default is 700
+	arm_freq = 0 #Arm CPU core frequency
+	             #Default is 700
 	
 	gpu_freq = 0   #Sets all 4 following at same time
 	               #Defaults to 250
