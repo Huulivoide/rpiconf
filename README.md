@@ -10,16 +10,24 @@ the code, so changing their values will lead to a change in out config
 object which holds the settings.
 
 TODO:
-0. Add the frambuffer size elements and code.
+0. Add the frambuffer size elements and code. [x]
+
 1. Design the oveclocking page elements.
+
 2. Connect the elements into the code
-3. Implement code to only allow global gpu freq/voltage or individual
-   ones
+
+3. Implement code to only allow global gpu freq/voltage or individual ones
+
 4. Implement code to parse '0' value options and exclude them from the
+
    saved generated config.
+
 5. Implement the actual config file generating logick and file saving.
+
 6. Try to preload the existing values into their places.
+
 7. Add gettext support and trnalsate into Finnish. Also optimize layout
+
    to better fit translated strings
 
 CONTRUBUTOR: If you wan to contribute code to this project, please try to
