@@ -7,21 +7,21 @@ import os
 ##we can exclude them from the saved file
 ##if == 0
 class rpi_config:
-	arm_freq = 700  #Arm CPU core frequency
-	              #Default is 700
+	arm_freq = 0  #Arm CPU core frequency
+	                #Default is 700
 	
-	gpu_freq = 250  #Sets all 4 following at same time
-	                #Defaults to 250
-	core_freq = 250 #General GPU core frequency
-	                #Default is 250.
-	h264_freq = 250 #Sets the video decoder frequency
-	                #Default is 250.
-	isp_freq = 250  #Image sensor pipeline frequency
-	                #Default is 250.
-	v3d_freq = 250  #Frequency of the 3D builder
-	                #Default 250.
-	sdram_freq = 400#Frequency od the SDRAM memory chip
-	                #Default 400.
+	gpu_freq = 0   #Sets all 4 following at same time
+	               #Defaults to 250
+	core_freq = 0  #General GPU core frequency
+	               #Default is 250.
+	h264_freq = 0  #Sets the video decoder frequency
+	               #Default is 250.
+	isp_freq = 0   #Image sensor pipeline frequency
+	               #Default is 250.
+	v3d_freq = 0   #Frequency of the 3D builder
+	               #Default 250.
+	sdram_freq = 0 #Frequency od the SDRAM memory chip
+	               #Default 400.
 	
 	over_voltage = 0 #ARM/GPU core voltage adjust.
 	                 #[-16,8] equates to [0.8V,1.4V].
@@ -38,14 +38,14 @@ class rpi_config:
 	                         #Default is 0 (1.2V)
 	###Video output stuff
 	sdtv_mode = 0   #composite tv mode. Default is 0 (NTSC)
-	sdtv_aspect = 1 #composite aspect ratio. Default is 1 (4:3)
+	sdtv_aspect = 0 #composite aspect ratio. Default is 1 (4:3)
 	hdmi_mode = 0   #hdmi mode. Default is negotiated with display.
-	hdmi_drive = 2  #hdmi port outputs HDMI(2)/DVI(1) signal
+	hdmi_drive = 0  #hdmi port outputs HDMI(2)/DVI(1) signal
 	                #Default to HDMI as it is HDMI port ^_^
 	hdmi_boost = 0  #Not documented offically anywhere. Use 0 and
 					#exclude from config at save time. HDMI signal power
 
-	disable_overscan = 1#Disables the overscanning when set to 1
+	disable_overscan = 0#Disables the overscanning when set to 1
 	overscan_left = 0   #number of pixels to skip on left
 	overscan_right = 0  #number of pixels to skip on right
 	overscan_top = 0    #number of pixels to skip on top
