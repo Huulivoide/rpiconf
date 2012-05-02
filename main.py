@@ -56,7 +56,7 @@ def populate_refreshrates(mode):
 	# Set the refreshrate list to that of supported ones
 	#Make 1st sure we are clean of the old ones
 	refreshrate_box.remove_all()
-	if mode != "AUTO" or mode != "VGA":
+	if mode != "AUTO" and mode != "VGA":
 		if advanced:
 			list_name = "refreshrates_" + mode + "_advanced"
 		else:
