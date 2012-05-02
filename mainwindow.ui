@@ -142,6 +142,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_save" swapped="no"/>
                       </object>
                     </child>
                     <child>
@@ -718,7 +719,7 @@ frambuffer</property>
                     <property name="climb_rate">1</property>
                     <property name="snap_to_ticks">True</property>
                     <property name="numeric">True</property>
-                    <signal name="change-value" handler="on_height_change" swapped="no"/>
+                    <signal name="value-changed" handler="on_height_change" swapped="no"/>
                   </object>
                   <packing>
                     <property name="x">322</property>
@@ -742,7 +743,7 @@ frambuffer</property>
                     <property name="climb_rate">1</property>
                     <property name="snap_to_ticks">True</property>
                     <property name="numeric">True</property>
-                    <signal name="change-value" handler="on_width_change" swapped="no"/>
+                    <signal name="value-changed" handler="on_width_change" swapped="no"/>
                   </object>
                   <packing>
                     <property name="x">322</property>

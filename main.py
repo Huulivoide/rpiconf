@@ -106,7 +106,12 @@ class Handler:
 		config.overscan_left = spin.get_value_as_int()
 	def on_right_change(self, spin):
 		config.overscan_right = spin.get_value_as_int()
-		
+	
+	def on_height_change(self, spin):
+		config.framebuffer_height = spin.get_value_as_int()
+	def on_width_change(sefl, spin):
+		config.framebuffer_width = spin.get_value_as_int()
+	
 	def on_power_change(self, combo):
 		if combo.get_active_text() == "DEFAULT":
 			config.hdmi_boost = 0
