@@ -106,6 +106,14 @@ class Handler:
 		config.overscan_left = spin.get_value_as_int()
 	def on_right_change(self, spin):
 		config.overscan_right = spin.get_value_as_int()
+		
+	def on_power_change(self, combo):
+		if combo.get_active_text() == "DEFAULT":
+			config.hdmi_boost = 0
+		else:
+			# Make sure we get the value as int and not str
+			# I think this might not be needed, but to be sure (HELP!)
+			config.hdmi_boost = int(combo.get_active_text())
 
 	def on_show_about(self, window):
 		about = builder.get_object("aboutwindow")
