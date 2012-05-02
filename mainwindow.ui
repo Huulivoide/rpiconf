@@ -65,6 +65,16 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</property>
       </object>
     </child>
   </object>
+  <object class="GtkAdjustment" id="adjust_fb_height">
+    <property name="upper">1080</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjust_fb_width">
+    <property name="upper">1920</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
   <object class="GtkAdjustment" id="adjust_overscan_bottom">
     <property name="upper">300</property>
     <property name="step_increment">1</property>
@@ -422,7 +432,7 @@ for more information.</property>
                     <signal name="toggled" handler="on_check_refreshrate_toggled" swapped="no"/>
                   </object>
                   <packing>
-                    <property name="x">198</property>
+                    <property name="x">197</property>
                     <property name="y">75</property>
                   </packing>
                 </child>
@@ -445,7 +455,7 @@ you want</property>
                     <signal name="toggled" handler="on_drive_change" swapped="no"/>
                   </object>
                   <packing>
-                    <property name="y">140</property>
+                    <property name="y">132</property>
                   </packing>
                 </child>
                 <child>
@@ -468,7 +478,7 @@ this.</property>
                   </object>
                   <packing>
                     <property name="x">198</property>
-                    <property name="y">140</property>
+                    <property name="y">132</property>
                   </packing>
                 </child>
                 <child>
@@ -479,7 +489,7 @@ this.</property>
                     <property name="can_focus">False</property>
                   </object>
                   <packing>
-                    <property name="y">172</property>
+                    <property name="y">187</property>
                   </packing>
                 </child>
                 <child>
@@ -491,7 +501,7 @@ this.</property>
                     <property name="label" translatable="yes">General output settings affecting both digital and analog outputs:</property>
                   </object>
                   <packing>
-                    <property name="y">175</property>
+                    <property name="y">190</property>
                   </packing>
                 </child>
                 <child>
@@ -503,7 +513,7 @@ this.</property>
                     <property name="label" translatable="yes">Overscan</property>
                   </object>
                   <packing>
-                    <property name="y">200</property>
+                    <property name="y">215</property>
                   </packing>
                 </child>
                 <child>
@@ -532,7 +542,7 @@ from the top of the screen?</property>
                     <signal name="value-changed" handler="on_top_change" swapped="no"/>
                   </object>
                   <packing>
-                    <property name="x">50</property>
+                    <property name="x">102</property>
                     <property name="y">224</property>
                   </packing>
                 </child>
@@ -547,7 +557,7 @@ from the top of the screen?</property>
                     <property name="label" translatable="yes">Top:</property>
                   </object>
                   <packing>
-                    <property name="y">230</property>
+                    <property name="y">232</property>
                   </packing>
                 </child>
                 <child>
@@ -561,7 +571,7 @@ from the left side of the screen?</property>
                     <property name="label" translatable="yes">Left:</property>
                   </object>
                   <packing>
-                    <property name="y">290</property>
+                    <property name="y">292</property>
                   </packing>
                 </child>
                 <child>
@@ -575,7 +585,7 @@ from the bottom of the screen?</property>
                     <property name="label" translatable="yes">Bottom:</property>
                   </object>
                   <packing>
-                    <property name="y">260</property>
+                    <property name="y">262</property>
                   </packing>
                 </child>
                 <child>
@@ -589,7 +599,7 @@ from the right side of the screen?</property>
                     <property name="label" translatable="yes">Right:</property>
                   </object>
                   <packing>
-                    <property name="y">320</property>
+                    <property name="y">322</property>
                   </packing>
                 </child>
                 <child>
@@ -614,7 +624,7 @@ from the left side of the screen?</property>
                     <signal name="value-changed" handler="on_left_change" swapped="no"/>
                   </object>
                   <packing>
-                    <property name="x">50</property>
+                    <property name="x">102</property>
                     <property name="y">284</property>
                   </packing>
                 </child>
@@ -641,7 +651,7 @@ from the right side of the screen?</property>
                     <signal name="value-changed" handler="on_right_change" swapped="no"/>
                   </object>
                   <packing>
-                    <property name="x">50</property>
+                    <property name="x">102</property>
                     <property name="y">314</property>
                   </packing>
                 </child>
@@ -668,18 +678,16 @@ from the bottom of the screen?</property>
                     <signal name="value-changed" handler="on_bottom_change" swapped="no"/>
                   </object>
                   <packing>
-                    <property name="x">50</property>
+                    <property name="x">102</property>
                     <property name="y">254</property>
                   </packing>
                 </child>
                 <child>
                   <object class="GtkButton" id="button_test">
-                    <property name="label" translatable="yes">This is a dummy button
-print values to terminal
-REMOVE for real version</property>
+                    <property name="label" translatable="yes">DUMMY</property>
                     <property name="use_action_appearance">False</property>
-                    <property name="width_request">100</property>
-                    <property name="height_request">80</property>
+                    <property name="width_request">55</property>
+                    <property name="height_request">25</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -687,8 +695,148 @@ REMOVE for real version</property>
                     <signal name="pressed" handler="on_print_variables" swapped="no"/>
                   </object>
                   <packing>
-                    <property name="x">303</property>
-                    <property name="y">237</property>
+                    <property name="x">447</property>
+                    <property name="y">319</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="spin_fb_height">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Specify the height of the
+frambuffer</property>
+                    <property name="max_length">4</property>
+                    <property name="invisible_char">●</property>
+                    <property name="width_chars">4</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="caps_lock_warning">False</property>
+                    <property name="primary_icon_activatable">False</property>
+                    <property name="primary_icon_sensitive">False</property>
+                    <property name="adjustment">adjust_fb_height</property>
+                    <property name="climb_rate">1</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                    <signal name="change-value" handler="on_height_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">322</property>
+                    <property name="y">254</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="spin_fb_width">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Specify the width of the
+frambuffer</property>
+                    <property name="max_length">4</property>
+                    <property name="invisible_char">●</property>
+                    <property name="width_chars">4</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="caps_lock_warning">False</property>
+                    <property name="adjustment">adjust_fb_width</property>
+                    <property name="climb_rate">1</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                    <signal name="change-value" handler="on_width_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">322</property>
+                    <property name="y">284</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_fb_height">
+                    <property name="width_request">43</property>
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Specify the width of the
+frambuffer</property>
+                    <property name="label" translatable="yes">Height:</property>
+                  </object>
+                  <packing>
+                    <property name="x">220</property>
+                    <property name="y">262</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_fb_width">
+                    <property name="width_request">40</property>
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Specify the height of the
+frambuffer</property>
+                    <property name="label" translatable="yes">Width:</property>
+                  </object>
+                  <packing>
+                    <property name="x">220</property>
+                    <property name="y">292</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_fb">
+                    <property name="width_request">100</property>
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Framebuffer size</property>
+                  </object>
+                  <packing>
+                    <property name="x">220</property>
+                    <property name="y">215</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_hdmi_boost">
+                    <property name="width_request">189</property>
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Specify the level of boost power
+to be applyed to the HDMI signal.
+Leave to DEFAULT unless you
+really need to change it. Consult
+manual for more information.</property>
+                    <property name="label" translatable="yes">HDMI port output power level:</property>
+                  </object>
+                  <packing>
+                    <property name="y">165</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="combo_power">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Specify the level of boost power
+to be applyed to the HDMI signal.
+Leave to DEFAULT unless you
+really need to change it. Consult
+manual for more information.</property>
+                    <property name="entry_text_column">0</property>
+                    <property name="id_column">1</property>
+                    <items>
+                      <item>DEFAULT</item>
+                      <item>1</item>
+                      <item>2</item>
+                      <item>3</item>
+                      <item>4</item>
+                      <item>5</item>
+                      <item>6</item>
+                      <item>7</item>
+                    </items>
+                    <signal name="changed" handler="on_power_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">220</property>
+                    <property name="y">155</property>
                   </packing>
                 </child>
               </object>
