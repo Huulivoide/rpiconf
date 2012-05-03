@@ -9,33 +9,23 @@ All of the elements in the vide output settings page have been connected to
 the code, so changing their values will lead to a change in out config
 object which holds the settings.
 
-TODO:
-0. Add the frambuffer size elements and code. [x]
+TODO:  
+* Design the oveclocking page elements.  
+* Connect the elements into the code.  
+* Implement code to only allow global gpu freq/voltage or individual ones.  
+* Implement file saving to a custom file.
+* Implement the filesaving dialogs.
+* Try to preload the existing values into their places.  
+* Add gettext support and trnalsate into Finnish. Also optimize layout to better fit translated strings.
 
-1. Design the oveclocking page elements.
-
-2. Connect the elements into the code
-
-3. Implement code to only allow global gpu freq/voltage or individual ones
-
-4. Implement code to parse '0' value options and exclude them from the
-
-   saved generated config.
-
-5. Implement the actual config file generating logick and file saving.
-
-6. Try to preload the existing values into their places.
-
-7. Add gettext support and trnalsate into Finnish. Also optimize layout
-
-   to better fit translated strings
-
-CONTRUBUTOR: If you wan to contribute code to this project, please try to
-avoid super optoimized and expert code (if such exist) I want to keep this
-simple so even beginners can easily get a hang of what is going on, it is
+###CONTRIBUTOR:  
+If you wan to contribute code to this project, please try to  
+avoid super optoimized and expert code (if such exist) I want to keep this  
+simple so even beginners can easily get a hang of what is going on, it is  
 for the RPi after all.
 
-This piece of software is given to you under the following license
+###License  
+This piece of software is given to you under the following license  
 Copyright (c) 2012, Jaara Jesse Juhani
 All rights reserved.
 
