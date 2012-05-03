@@ -1,4 +1,5 @@
 import os
+import io
 
 ####Configfile variables object/class
 ###Overclocking stuff
@@ -149,4 +150,18 @@ def get_drive_mode(state):
 	else:
 		return 1
 
-
+def enable_overscanning(top, bottom, left, right):
+	if top == 0 and bottom == 0 and left == 0 and right == 0:
+		return 1
+	else:
+		return 0
+		
+def include_option(option, value):
+	#Make 100 sure we get the value in string format
+	value = str(value)
+	#if option == 
+	if value != "0":
+		return(option + "=" + value + '\n')
+	else:
+		return ("#Value of '" + option + "' not defined!" +
+				" Exluding it from config file!\n")
