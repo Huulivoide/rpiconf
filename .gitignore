@@ -25,3 +25,7 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#Geany files
+geany_run_script.sh
+rpi.geany
