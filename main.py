@@ -36,8 +36,7 @@ configfile = rpiconf.get_configfile(sys.argv)
 # Thanks for user Tauran on stackowerflow for this hack
 config_str = io.StringIO()
 config_str.write('[dummy]')
-if configfile != "":
-	config_str.write(open(configfile, 'r').read())
+config_str.write(open(configfile, 'r').read())
 config_str.seek(0, os.SEEK_SET)
 
 config_parser = configparser.ConfigParser()

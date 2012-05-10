@@ -131,7 +131,7 @@ def get_configfile(argv):
 	elif BOOT_FILE_EXIST:
 		configfile = "/boot/config.txt"
 	else:
-		configfile = ""
+		configfile = "config.txt"
 	return configfile
 
 def translate_hdmi_mode(raw_mode):
