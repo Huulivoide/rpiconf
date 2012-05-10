@@ -21,7 +21,8 @@ class rpi_config:
 	               #Default is 250.
 	v3d_freq = 0   #Frequency of the 3D builder
 	               #Default 250.
-	sdram_freq = 0 #Frequency od the SDRAM memory chip
+
+	sdram_freq = 0 #Frequency of the SDRAM memory chip
 	               #Default 400.
 	
 	over_voltage = 0 #ARM/GPU core voltage adjust.
@@ -157,7 +158,7 @@ def enable_overscanning(top, bottom, left, right):
 		return 0
 		
 def include_option(option, value):
-	#Make 100 sure we get the value in string format
+	#Make 100% sure we get the value in string format
 	value = str(value)
 	#if option == 
 	if value != "0":
