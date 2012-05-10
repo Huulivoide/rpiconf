@@ -65,6 +65,33 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</property>
       </object>
     </child>
   </object>
+  <object class="GtkAdjustment" id="adjust_3d">
+    <property name="lower">150</property>
+    <property name="upper">500</property>
+    <property name="value">250</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjust_core">
+    <property name="lower">150</property>
+    <property name="upper">500</property>
+    <property name="value">250</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjust_core_voltage">
+    <property name="lower">-16</property>
+    <property name="upper">8</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjust_cpu">
+    <property name="lower">200</property>
+    <property name="upper">16000</property>
+    <property name="value">700</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
   <object class="GtkAdjustment" id="adjust_fb_height">
     <property name="upper">1080</property>
     <property name="step_increment">1</property>
@@ -72,6 +99,20 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</property>
   </object>
   <object class="GtkAdjustment" id="adjust_fb_width">
     <property name="upper">1920</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjust_gpu">
+    <property name="lower">150</property>
+    <property name="upper">500</property>
+    <property name="value">250</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjust_isp">
+    <property name="lower">150</property>
+    <property name="upper">500</property>
+    <property name="value">250</property>
     <property name="step_increment">1</property>
     <property name="page_increment">10</property>
   </object>
@@ -92,6 +133,44 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</property>
   </object>
   <object class="GtkAdjustment" id="adjust_overscan_top">
     <property name="upper">300</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjust_sdram">
+    <property name="lower">200</property>
+    <property name="upper">800</property>
+    <property name="value">400</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjust_sdram_voltage">
+    <property name="lower">-16</property>
+    <property name="upper">8</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjust_sdramc_voltage">
+    <property name="lower">-16</property>
+    <property name="upper">8</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjust_sdrami_voltage">
+    <property name="lower">-16</property>
+    <property name="upper">8</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjust_sdramp_voltage">
+    <property name="lower">-16</property>
+    <property name="upper">8</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjust_video">
+    <property name="lower">150</property>
+    <property name="upper">500</property>
+    <property name="value">250</property>
     <property name="step_increment">1</property>
     <property name="page_increment">10</property>
   </object>
@@ -219,7 +298,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</property>
                 <property name="can_focus">False</property>
                 <child>
                   <object class="GtkLabel" id="label_analog">
-                    <property name="width_request">167</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -228,7 +306,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</property>
                 </child>
                 <child>
                   <object class="GtkSeparator" id="separator_analog_digtal">
-                    <property name="width_request">496</property>
+                    <property name="width_request">502</property>
                     <property name="height_request">1</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -239,7 +317,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_analog_mode">
-                    <property name="width_request">91</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -290,7 +367,6 @@ also support PAL.</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_aspectratio">
-                    <property name="width_request">165</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -325,7 +401,6 @@ for a widescreen TV 14:9 or 16:9</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_digital">
-                    <property name="width_request">172</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -337,7 +412,6 @@ for a widescreen TV 14:9 or 16:9</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_digital_resolution">
-                    <property name="width_request">68</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -383,7 +457,6 @@ modes over the Xi modes.</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_digital_refreshrate">
-                    <property name="width_request">74</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -418,7 +491,6 @@ help. Help menu -&gt; Manual</property>
                   <object class="GtkCheckButton" id="check_refreshrate">
                     <property name="label" translatable="yes">Show advanced refreshrates</property>
                     <property name="use_action_appearance">False</property>
-                    <property name="width_request">197</property>
                     <property name="height_request">22</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
@@ -441,7 +513,6 @@ for more information.</property>
                   <object class="GtkRadioButton" id="radio_hdmi">
                     <property name="label" translatable="yes">Output HDMI signal</property>
                     <property name="use_action_appearance">False</property>
-                    <property name="width_request">100</property>
                     <property name="height_request">22</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
@@ -463,7 +534,6 @@ you want</property>
                   <object class="GtkRadioButton" id="radio_dvi">
                     <property name="label" translatable="yes">Output DVI signal</property>
                     <property name="use_action_appearance">False</property>
-                    <property name="width_request">100</property>
                     <property name="height_request">22</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
@@ -484,7 +554,7 @@ this.</property>
                 </child>
                 <child>
                   <object class="GtkSeparator" id="separator_digital_misc">
-                    <property name="width_request">496</property>
+                    <property name="width_request">502</property>
                     <property name="height_request">1</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -495,7 +565,6 @@ this.</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_misc">
-                    <property name="width_request">392</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -507,7 +576,6 @@ this.</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_overscan">
-                    <property name="width_request">57</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -549,7 +617,6 @@ from the top of the screen?</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_overscan_top">
-                    <property name="width_request">29</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -563,7 +630,6 @@ from the top of the screen?</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_overscan_left">
-                    <property name="width_request">28</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -577,7 +643,6 @@ from the left side of the screen?</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_overscan_bottom">
-                    <property name="width_request">48</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -591,7 +656,6 @@ from the bottom of the screen?</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_overscan_right">
-                    <property name="width_request">34</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -752,7 +816,6 @@ frambuffer</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_fb_height">
-                    <property name="width_request">43</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -767,7 +830,6 @@ frambuffer</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_fb_width">
-                    <property name="width_request">40</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -782,7 +844,6 @@ frambuffer</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_fb">
-                    <property name="width_request">100</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -795,7 +856,6 @@ frambuffer</property>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_hdmi_boost">
-                    <property name="width_request">189</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -856,18 +916,702 @@ manual for more information.</property>
               <object class="GtkFixed" id="fixed2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkLabel" id="label_warning">
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Options in this page are designed to make
+your RPi run faster/slower. While small change
+probably won't hurt, bigger changes might
+break your RPi completely. Some changes
+can also reduce your RPi's lifespan.</property>
+                    <property name="label" translatable="yes">WARNING: Some of these settings might fry your Raspberry Pi</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                      <attribute name="underline" value="True"/>
+                      <attribute name="foreground" value="#ffff055f0000"/>
+                    </attributes>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_clock">
+                    <property name="width_request">31</property>
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">These settings affect the general
+computing unit of your Raspberry Pi</property>
+                    <property name="label" translatable="yes">Operating freqyency:</property>
+                  </object>
+                  <packing>
+                    <property name="y">20</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_power">
+                    <property name="width_request">126</property>
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">These settings affec both CPU and GPU.
+Set the over/under voltage level of the
+chipset</property>
+                    <property name="label" translatable="yes">Chips voltage control:</property>
+                  </object>
+                  <packing>
+                    <property name="y">140</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_tuning_general">
+                    <property name="width_request">99</property>
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">These settings affect both GPU
+and CPU in someway, other than
+voltage.</property>
+                    <property name="label" translatable="yes">General settings:</property>
+                  </object>
+                  <packing>
+                    <property name="y">300</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="spin_cpu">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Set the frequecny of the CPU.
+700 is the default and recomended
+value.</property>
+                    <property name="max_length">4</property>
+                    <property name="invisible_char">●</property>
+                    <property name="width_chars">4</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="caps_lock_warning">False</property>
+                    <property name="adjustment">adjust_cpu</property>
+                    <property name="climb_rate">1</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                    <signal name="value-changed" handler="on_cpu_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">60</property>
+                    <property name="y">42</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_cpu_frequency">
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Set the frequecny of the CPU.
+700 is the default and recomended
+value.</property>
+                    <property name="label" translatable="yes">CPU:</property>
+                  </object>
+                  <packing>
+                    <property name="y">50</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkRadioButton" id="radio_gpu_uni">
+                    <property name="label" translatable="yes">Unified GPU frequency</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="width_request">157</property>
+                    <property name="height_request">22</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Select wether to use one and same
+frequency for all parts of the GPU or
+select differend frequency for each
+GPU part separetely.</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="xalign">0</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <property name="group">radio_gpu_independed</property>
+                    <signal name="toggled" handler="on_gpu_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">208</property>
+                    <property name="y">20</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkRadioButton" id="radio_gpu_independed">
+                    <property name="label" translatable="yes">Independed frequencys</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="width_request">159</property>
+                    <property name="height_request">22</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Select wether to use one and same
+frequency for all parts of the GPU or
+select differend frequency for each
+GPU part separetely.</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="xalign">0</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <property name="group">radio_gpu_uni</property>
+                  </object>
+                  <packing>
+                    <property name="x">208</property>
+                    <property name="y">42</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_gpu_frequency">
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">This sets the frequency of the GPU chip
+in genral. This setting affect all of the 4
+parts inside the GPU. Use this if you don't
+know what you are doing. 250 is the stock
+and remocemded value, you should use it.</property>
+                    <property name="label" translatable="yes">GPU:</property>
+                  </object>
+                  <packing>
+                    <property name="y">110</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="spin_gpu">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">This sets the frequency of the GPU chip
+in genral. This setting affect all of the 4
+parts inside the GPU. Use this if you don't
+know what you are doing.</property>
+                    <property name="max_length">3</property>
+                    <property name="invisible_char">●</property>
+                    <property name="width_chars">3</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="caps_lock_warning">False</property>
+                    <property name="adjustment">adjust_gpu</property>
+                    <property name="climb_rate">1</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                    <signal name="value-changed" handler="on_gpu_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">60</property>
+                    <property name="y">102</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="check_l2">
+                    <property name="label" translatable="yes">CPU can acces l2-cache</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="height_request">22</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Enable the CPU to acces the l2-cache
+trought the GPU. This need a l2-cache
+enabled kernel. Consult the manual for
+a list of know distros with this kind of
+a kernel, if you don't know.</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="xalign">0</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_l2_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="y">322</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="check_test">
+                    <property name="label" translatable="yes">Enable test mode</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="height_request">22</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Enable the 'Test' mode. You are unlikely
+to want this. This is used to test the
+funtionality of the board at factory.
+Displays an image and plays sound.
+NOT RECOMENDED!</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="xalign">0</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_test_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">240</property>
+                    <property name="y">322</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSeparator" id="separator_voltage_misc">
+                    <property name="width_request">502</property>
+                    <property name="height_request">1</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="y">295</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_video">
+                    <property name="width_request">37</property>
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">This sets the video decoder chip's
+frequency.</property>
+                    <property name="label" translatable="yes">Video:</property>
+                  </object>
+                  <packing>
+                    <property name="x">170</property>
+                    <property name="y">110</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_isp">
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">This sets the Image Sensor Pipeline's
+frequency.</property>
+                    <property name="label" translatable="yes">ISP:</property>
+                  </object>
+                  <packing>
+                    <property name="x">340</property>
+                    <property name="y">110</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_v3d">
+                    <property name="width_request">20</property>
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">This sets the 3D model builder chips's
+frequency.</property>
+                    <property name="label" translatable="yes">3D:</property>
+                  </object>
+                  <packing>
+                    <property name="x">340</property>
+                    <property name="y">80</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_core">
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">This sets the operating frequency of
+the genral GPU core.</property>
+                    <property name="label" translatable="yes">Core:</property>
+                  </object>
+                  <packing>
+                    <property name="x">170</property>
+                    <property name="y">80</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="spin_core">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">This sets the operating frequency of
+the genral GPU core.</property>
+                    <property name="max_length">3</property>
+                    <property name="invisible_char">●</property>
+                    <property name="width_chars">3</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="caps_lock_warning">False</property>
+                    <property name="adjustment">adjust_core</property>
+                    <property name="climb_rate">1</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                    <signal name="value-changed" handler="on_core_chnge" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">230</property>
+                    <property name="y">72</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="spin_3d">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">This sets the 3D model builder chips's
+frequency.</property>
+                    <property name="max_length">3</property>
+                    <property name="invisible_char">●</property>
+                    <property name="width_chars">3</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="caps_lock_warning">False</property>
+                    <property name="adjustment">adjust_3d</property>
+                    <property name="climb_rate">1</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                    <signal name="value-changed" handler="on_3d_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">400</property>
+                    <property name="y">72</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="spin_video">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">This sets the video decoder chip's
+frequency.</property>
+                    <property name="max_length">3</property>
+                    <property name="invisible_char">●</property>
+                    <property name="width_chars">3</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="caps_lock_warning">False</property>
+                    <property name="adjustment">adjust_video</property>
+                    <property name="climb_rate">1</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                    <signal name="value-changed" handler="on_video_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">230</property>
+                    <property name="y">102</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="spin_isp">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">This sets the Image Sensor Pipeline's
+frequency.</property>
+                    <property name="max_length">3</property>
+                    <property name="invisible_char">●</property>
+                    <property name="width_chars">3</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="caps_lock_warning">False</property>
+                    <property name="adjustment">adjust_isp</property>
+                    <property name="climb_rate">1</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                    <signal name="value-changed" handler="on_isp_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">400</property>
+                    <property name="y">102</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_sdram">
+                    <property name="width_request">51</property>
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Set the frequency of the SDRAM
+memory. 400 is the default and
+recomended value.</property>
+                    <property name="label" translatable="yes">SDRAM:</property>
+                  </object>
+                  <packing>
+                    <property name="y">80</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="spin_sdram">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Set the frequency of the SDRAM
+memory. 400 is the default and
+recomended value.</property>
+                    <property name="max_length">3</property>
+                    <property name="invisible_char">●</property>
+                    <property name="width_chars">3</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="caps_lock_warning">False</property>
+                    <property name="adjustment">adjust_sdram</property>
+                    <property name="climb_rate">1</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                    <signal name="value-changed" handler="on_sdram_chang" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">60</property>
+                    <property name="y">72</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSeparator" id="separator_frequency_voltage">
+                    <property name="width_request">502</property>
+                    <property name="height_request">1</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="y">135</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_core_voltage">
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Set the CPU/GPU voltage level.
+0 is the stock/recomended value.
+Consult the manual on how this
+works.</property>
+                    <property name="label" translatable="yes">Core:</property>
+                  </object>
+                  <packing>
+                    <property name="y">170</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_sdram_voltage">
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">SDRAM:</property>
+                  </object>
+                  <packing>
+                    <property name="y">200</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_sdramc_voltage">
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Set the SDRAM controller chip
+voltage. See the manual on how
+this works.</property>
+                    <property name="label" translatable="yes">Controller:</property>
+                  </object>
+                  <packing>
+                    <property name="x">170</property>
+                    <property name="y">200</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_sdramio_voltage">
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Set the SDRAM I/O chip
+voltage. See the manual on how
+this works.</property>
+                    <property name="label" translatable="yes">I/O:</property>
+                  </object>
+                  <packing>
+                    <property name="x">170</property>
+                    <property name="y">260</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_sdramp_voltage">
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Set the SDRAM PHY chip
+voltage. See the manual on how
+this works.</property>
+                    <property name="label" translatable="yes">PHY:</property>
+                  </object>
+                  <packing>
+                    <property name="x">170</property>
+                    <property name="y">230</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="spin_core_voltage">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">3</property>
+                    <property name="invisible_char">●</property>
+                    <property name="width_chars">2</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="caps_lock_warning">False</property>
+                    <property name="adjustment">adjust_core_voltage</property>
+                    <property name="climb_rate">1</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                    <signal name="value-changed" handler="on_core_voltage_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">60</property>
+                    <property name="y">162</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkRadioButton" id="radio_voltage_unified">
+                    <property name="label" translatable="yes">Unified SDRAM voltage</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="height_request">22</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Use the same voltage for all of the
+SDRAM parts.</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="xalign">0</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                  </object>
+                  <packing>
+                    <property name="x">208</property>
+                    <property name="y">140</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkRadioButton" id="radio_voltage_individual">
+                    <property name="label" translatable="yes">Independed voltages</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="height_request">22</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Set SDRAM controller, I/O and PHY
+voltages independendly from
+eachothers.</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="xalign">0</property>
+                    <property name="draw_indicator">True</property>
+                    <property name="group">radio_voltage_unified</property>
+                  </object>
+                  <packing>
+                    <property name="x">208</property>
+                    <property name="y">162</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="spin_sdram_voltage">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">3</property>
+                    <property name="invisible_char">●</property>
+                    <property name="width_chars">3</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="caps_lock_warning">False</property>
+                    <property name="adjustment">adjust_sdram_voltage</property>
+                    <property name="climb_rate">1</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                    <signal name="value-changed" handler="on_sdram_voltage_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">60</property>
+                    <property name="y">192</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="spin_sdramc_voltage">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Set the SDRAM controller chip
+voltage. See the manual on how
+this works.</property>
+                    <property name="max_length">3</property>
+                    <property name="invisible_char">●</property>
+                    <property name="width_chars">3</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="caps_lock_warning">False</property>
+                    <property name="adjustment">adjust_sdramc_voltage</property>
+                    <property name="climb_rate">1</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                    <signal name="value-changed" handler="on_sdramc_voltage_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">230</property>
+                    <property name="y">192</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="spin_sdramp_voltage">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Set the SDRAM PHY chip
+voltage. See the manual on how
+this works.</property>
+                    <property name="max_length">3</property>
+                    <property name="invisible_char">●</property>
+                    <property name="width_chars">3</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="caps_lock_warning">False</property>
+                    <property name="adjustment">adjust_sdramp_voltage</property>
+                    <property name="climb_rate">1</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                    <signal name="value-changed" handler="on_sdramp_voltage_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">230</property>
+                    <property name="y">222</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="spin_sdrami_voltage">
+                    <property name="width_request">100</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Set the SDRAM I/O chip
+voltage. See the manual on how
+this works.</property>
+                    <property name="max_length">3</property>
+                    <property name="invisible_char">●</property>
+                    <property name="width_chars">3</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="caps_lock_warning">False</property>
+                    <property name="adjustment">adjust_sdrami_voltage</property>
+                    <property name="climb_rate">1</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                    <signal name="value-changed" handler="on_sdrami_voltage_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">230</property>
+                    <property name="y">252</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="position">1</property>
               </packing>
             </child>
             <child type="tab">
-              <object class="GtkLabel" id="label_overclock">
+              <object class="GtkLabel" id="label_tuning">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Do not touch these if you
 don't know what you are doing</property>
-                <property name="label" translatable="yes">Overclocking settings</property>
+                <property name="label" translatable="yes">Performance tuning</property>
               </object>
               <packing>
                 <property name="position">1</property>
