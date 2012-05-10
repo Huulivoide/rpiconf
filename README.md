@@ -1,26 +1,25 @@
 rpiconf
 =======
 
-A gui for editiong Raspberry Pi config.txt file
+A GUI for editing Raspberry Pi config.txt file
 Written int Python3 and Gtk+3
 
-This is still a work in progress and cannot generate failproof config files.
-All of the elements in the vide output settings page have been connected to
+This is still a work in progress and cannot generate fail-proof config files.
+All of the elements in the video output settings page have been connected to
 the code, so changing their values will lead to a change in out config
 object which holds the settings.
 
-TODO:  
-* Design the oveclocking page elements.  
-* Connect the elements into the code.  
+TODO:    
+* Connect the overclocking page elements into the code.  
 * Implement code to only allow global gpu freq/voltage or individual ones.  
 * Implement file saving to a custom file.
-* Implement the filesaving dialogs.
+* Implement the filesaving dialogues.
 * Try to preload the existing values into their places.  
-* Add gettext support and trnalsate into Finnish. Also optimize layout to better fit translated strings.
+* Add gettext support and translate into Finnish. Also optimize layout to better fit translated strings.
 
 ###CONTRIBUTOR:  
-If you wan to contribute code to this project, please try to  
-avoid super optoimized and expert code (if such exist) I want to keep this  
+If you want to contribute code to this project, please try to  
+avoid super optimized and expert code (if such exist) I want to keep this  
 simple so even beginners can easily get a hang of what is going on, it is  
 for the RPi after all.
 
