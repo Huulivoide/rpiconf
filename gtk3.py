@@ -21,22 +21,34 @@ from gi.repository import Gtk
 ##library on handling the config file.
 ####
 
-#Helper variables
+##Helper variables
 raw_hdmi_mode = ['AUTO', ''] #One for resolution, one for refreshrate
 advanced = False
+test = False
+l2 = False
+#When true use the unified gpu chip frequency changing
+gpu_freq_uni = True
 
 ##Load some of our widgets from the glade file to the current namespace
 #Load our window from the glade/gtkbuilder file
 builder = Gtk.Builder()
 builder.add_from_file("mainwindow.ui")
 refreshrate_box = builder.get_object("combo_refreshrate")
+about = builder.get_object("aboutwindow")
 
 #Get the proper filename for our config file.
-configfile = rpiconf.get_configfile(sys.argv)
+#Filename must ALWAYS be the last argument.
+args = len(sys.argv)
+if args > 1:
+	configfile = rpiconf.get_configfile(sys.argv[args - 1])
+else:
+	configfile = rpiconf.get_configfile('')
+
 # Thanks for user Tauran on stackowerflow for this hack
 config_str = io.StringIO()
 config_str.write('[dummy]')
-config_str.write(open(configfile, 'r').read())
+if os.path.isfile(configfile):
+	config_str.write(open(configfile, 'r').read())
 config_str.seek(0, os.SEEK_SET)
 
 config_parser = configparser.ConfigParser()
@@ -84,7 +96,7 @@ for option in rpiconf.options:
 class Handler:
 	def onDeleteWindow(self, *args):
 		Gtk.main_quit(*args)
-		
+###Video options########################################################
 	def on_check_refreshrate_toggled(self, button):
 		global advanced
 		advanced = not advanced
@@ -129,10 +141,63 @@ class Handler:
 			# Make sure we get the value as int and not str
 			# I think this might not be needed, but to be sure (HELP!)
 			config.hdmi_boost = int(combo.get_active_text())
+###End Video Options###################################################
+###Performance tuning options##########################################
+	#Check the sanes of the values just before saving.
+	def on_cpu_change(sefl, spin):
+		config.arm_freq = spin.get_value_as_int()
+	def on_gpu_change(sefl, spin):
+		config.gpu_freq = spin.get_value_as_int()
+	def on_sdram_change(sefl, spin):
+		config.sdram_freq = spin.get_value_as_int()
+	def on_core_change(sefl, spin):
+		config.core_freq = spin.get_value_as_int()
+	def on_video_change(sefl, spin):
+		config.h264_freq = spin.get_value_as_int()
+	def on_isp_change(sefl, spin):
+		config.isp_freq = spin.get_value_as_int()
+	def on_3d_change(sefl, spin):
+		config.v3d_freq = spin.get_value_as_int()
 
+	def on_gpu_type_change(self, button):
+		global gpu_freq_uni
+		state = button.get_active()
+		if state == True:
+			gpu_freq_uni = True
+		else:
+			gpu_freq_uni = False
+			
+	def on_core_voltage_change(sefl, spin):
+		config.over_voltage = spin.get_value_as_int()
+	def on_sdram_voltage_change(sefl, spin):
+		config.over_voltage_sdram = spin.get_value_as_int()
+	def on_sdramc_voltage_change(sefl, spin):
+		config.over_voltage_sdram_c = spin.get_value_as_int()
+	def on_sdramp_voltage_change(sefl, spin):
+		config.over_voltage_sdram_p = spin.get_value_as_int()
+	def on_sdrami_voltage_change(sefl, spin):
+		config.over_voltage_sdram_i = spin.get_value_as_int()
+
+	def on_test_change(self, button):
+		global test
+		test = not test
+		if test:
+			config.test_mode = 1
+		else:
+			config.test_mode = 0	
+	def on_l2_change(self, button):
+		global l2
+		l2 = not l2
+		if l2:
+			config.enable_l2cache = 1
+		else:
+			config.enable_l2cache = 0
+###End Performance tuning options######################################
 	def on_show_about(self, window):
-		about = builder.get_object("aboutwindow")
 		about.show_all()
+		
+	def on_about_close(sefl, window, name):
+		about.hide()
 	
 	def on_save(self, menu):
 		global generated_config

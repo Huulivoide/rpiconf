@@ -122,12 +122,11 @@ refreshrates = {
 
 #Check if config file was giveb as argument or if a /boot/config.txt
 #exists. Return the filename as a string.
-def get_configfile(argv):
+def get_configfile(_file):
 	BOOT_FILE_EXIST = os.path.isfile("/boot/config.txt")
-	if len(argv) == 2:
-		FILE_EXISTS = os.path.isfile(argv[1])
-		if FILE_EXISTS:
-			configfile = argv[1]
+	FILE_EXISTS = os.path.isfile(_file)
+	if FILE_EXISTS:
+		configfile = _file
 	elif BOOT_FILE_EXIST:
 		configfile = "/boot/config.txt"
 	else:

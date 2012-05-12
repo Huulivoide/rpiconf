@@ -41,7 +41,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</property>
     <property name="authors">Jesse jaara &lt;jesse.jaara@gmail.com&gt;</property>
-    <signal name="close" handler="on_about_close" swapped="no"/>
+    <signal name="response" handler="on_about_close" swapped="no"/>
     <child internal-child="vbox">
       <object class="GtkBox" id="aboutdialog-vbox1">
         <property name="can_focus">False</property>
@@ -1035,7 +1035,7 @@ GPU part separetely.</property>
                     <property name="active">True</property>
                     <property name="draw_indicator">True</property>
                     <property name="group">radio_gpu_independed</property>
-                    <signal name="toggled" handler="on_gpu_change" swapped="no"/>
+                    <signal name="toggled" handler="on_gpu_type_change" swapped="no"/>
                   </object>
                   <packing>
                     <property name="x">208</property>
@@ -1059,7 +1059,6 @@ GPU part separetely.</property>
                     <property name="xalign">0</property>
                     <property name="active">True</property>
                     <property name="draw_indicator">True</property>
-                    <property name="group">radio_gpu_uni</property>
                   </object>
                   <packing>
                     <property name="x">208</property>
@@ -1351,7 +1350,7 @@ recomended value.</property>
                     <property name="climb_rate">1</property>
                     <property name="snap_to_ticks">True</property>
                     <property name="numeric">True</property>
-                    <signal name="value-changed" handler="on_sdram_chang" swapped="no"/>
+                    <signal name="value-changed" handler="on_sdram_change" swapped="no"/>
                   </object>
                   <packing>
                     <property name="x">60</property>
@@ -1476,6 +1475,7 @@ SDRAM parts.</property>
                     <property name="xalign">0</property>
                     <property name="active">True</property>
                     <property name="draw_indicator">True</property>
+                    <property name="group">radio_voltage_individual</property>
                   </object>
                   <packing>
                     <property name="x">208</property>
@@ -1496,7 +1496,6 @@ eachothers.</property>
                     <property name="use_action_appearance">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
-                    <property name="group">radio_voltage_unified</property>
                   </object>
                   <packing>
                     <property name="x">208</property>
