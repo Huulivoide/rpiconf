@@ -1,5 +1,5 @@
 import os
-import io
+
 
 ####Configfile variables object/class
 ###Overclocking stuff
@@ -11,7 +11,7 @@ class rpi_config:
 ####Start Variables###################################################
 	arm_freq = 0 #Arm CPU core frequency
 	             #Default is 700
-	
+
 	gpu_freq = 0   #Sets all 4 following at same time
 	               #Defaults to 250
 	core_freq = 0  #General GPU core frequency
@@ -25,12 +25,12 @@ class rpi_config:
 
 	sdram_freq = 0 #Frequency of the SDRAM memory chip
 	               #Default 400.
-	
+
 	over_voltage = 0 #ARM/GPU core voltage adjust.
 	                 #[-16,8] equates to [0.8V,1.4V].
 	                 #This rule applys to all of the voltages.
 	                 #Default 0 (1.2V)
-	
+
 	over_voltage_sdram = 0   #Sets all voltage variables
 	                         #Default is 0 (1.2V)
 	over_voltage_sdram_c = 0 #SDRAM controller voltage adjust.
@@ -55,7 +55,7 @@ class rpi_config:
 	overscan_bottom = 0 #number of pixels to skip on bottom
 	                    #Assume we have a sane display,
 	                    #which doens't need any overscanning.
-	
+
 	framebuffer_width = 0  #console framebuffer width in pixels.
 	                       #Default matches display.
 	framebuffer_height = 0 #console framebuffer height in pixels.

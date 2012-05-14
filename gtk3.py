@@ -101,18 +101,18 @@ class Handler:
 		global advanced
 		advanced = not advanced
 		populate_refreshrates(raw_hdmi_mode[0])
-		
+
 	def on_sdtv_change(self, combo):
 		config.sdtv_mode = rpiconf.sdtv_modes[combo.get_active_text()]
-		
+
 	def on_aspectratio_change(self, combo):
 		config.sdtv_aspect = \
 			rpiconf.aspectratios[combo.get_active_text()]
-			
+
 	def on_resolution_change(self, combo):
 		raw_hdmi_mode[0] = combo.get_active_text()
 		populate_refreshrates(raw_hdmi_mode[0])
-				
+
 	def on_refreshrate_change(self, combo):
 		raw_hdmi_mode[1] = combo.get_active_text()
 
@@ -130,12 +130,12 @@ class Handler:
 		config.overscan_left = spin.get_value_as_int()
 	def on_right_change(self, spin):
 		config.overscan_right = spin.get_value_as_int()
-	
+
 	def on_height_change(self, spin):
 		config.framebuffer_height = spin.get_value_as_int()
 	def on_width_change(sefl, spin):
 		config.framebuffer_width = spin.get_value_as_int()
-	
+
 	def on_power_change(self, combo):
 		if combo.get_active_text() == "DEFAULT":
 			config.hdmi_boost = 0
@@ -168,7 +168,7 @@ class Handler:
 			gpu_freq_uni = True
 		else:
 			gpu_freq_uni = False
-			
+
 	def on_core_voltage_change(sefl, spin):
 		config.over_voltage = spin.get_value_as_int()
 	def on_sdram_voltage_change(sefl, spin):
@@ -197,27 +197,27 @@ class Handler:
 ###End Performance tuning options######################################
 	def on_show_about(self, window):
 		about.show_all()
-		
+
 	def on_about_close(sefl, window, name):
 		about.hide()
-	
+
 	def on_save(self, menu):
 		global generated_config
 		config.overscan_state()
-		
+
 		config.translate_hdmi_mode(raw_hdmi_mode)
 		for option in rpiconf.options:
 			generated_config += (rpiconf.include_option(
 									option, getattr(config, option)))
-		
+
 		file = open(configfile, 'w')
 		file.write(generated_config)
 		file.close()
-	
+
 	def on_print_variables(self, button):
 		print(generated_config)
 
-	
+
 
 
 builder.connect_signals(Handler())
