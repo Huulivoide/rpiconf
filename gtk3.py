@@ -201,11 +201,8 @@ class Handler:
 	
 	def on_save(self, menu):
 		global generated_config
-		config.disable_overscan = rpiconf.enable_overscanning(
-									config.overscan_top,
-									config.overscan_bottom,
-									config.overscan_left,
-									config.overscan_right)
+		config.overscan_state()
+		
 		config.hdmi_mode = rpiconf.translate_hdmi_mode(raw_hdmi_mode)
 		for option in rpiconf.options:
 			generated_config += (rpiconf.include_option(
