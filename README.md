@@ -10,7 +10,6 @@ the code, so changing their values will lead to a change in out config
 object which holds the settings.
 
 TODO:    
-* Connect the overclocking page elements into the code.  
 * Implement code to only allow global gpu freq/voltage or individual ones.  
 * Implement file saving to a custom file.
 * Implement the filesaving dialogues.
