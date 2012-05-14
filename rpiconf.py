@@ -153,12 +153,6 @@ def translate_hdmi_mode(raw_mode):
 	elif raw_mode[0] != "":
 		mode = hdtv_modes[raw_mode[0]+raw_mode[1]]
 		return mode
-		
-def get_drive_mode(state):
-	if state == True:
-		return 2
-	else:
-		return 1
 
 def include_option(option, value):
 	#Make 100% sure we get the value in string format

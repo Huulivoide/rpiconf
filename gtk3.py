@@ -115,11 +115,13 @@ class Handler:
 				
 	def on_refreshrate_change(self, combo):
 		raw_hdmi_mode[1] = combo.get_active_text()
-		
-	def on_drive_change(self, button):
-		state = button.get_active()
-		config.hdmi_drive = rpiconf.get_drive_mode(state)
-		
+
+	def on_drive_change(self, button):	
+		if button.get_active() == True:
+			config.hdmi_drive = 2
+		else:
+			config.hdmi_drive = 1
+
 	def on_top_change(self, spin):
 		config.overscan_top = spin.get_value_as_int()
 	def on_bottom_change(self, spin):
