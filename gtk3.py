@@ -205,7 +205,7 @@ class Handler:
 		global generated_config
 		config.overscan_state()
 		
-		config.hdmi_mode = rpiconf.translate_hdmi_mode(raw_hdmi_mode)
+		config.translate_hdmi_mode(raw_hdmi_mode)
 		for option in rpiconf.options:
 			generated_config += (rpiconf.include_option(
 									option, getattr(config, option)))

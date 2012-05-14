@@ -72,6 +72,16 @@ class rpi_config:
 				self.disable_overscan = 1
 		else:
 			self.disable_overscan = 0
+
+	def translate_hdmi_mode(self, raw_mode):
+		if raw_mode[0] == "AUTO":
+			self.hdmi_mode = 0
+		elif raw_mode[0] == "VGA":
+			self.hdmi_mode = 1
+		elif raw_mode[0] == "":
+			self.hdmi_mode = 0
+		elif raw_mode[0] != "":
+			self.hdmi_mode = hdtv_modes[raw_mode[0]+raw_mode[1]]
 ####End functions#####################################################
 
 #Some lists of options
@@ -142,17 +152,6 @@ def get_configfile(_file):
 	else:
 		configfile = "config.txt"
 	return configfile
-
-def translate_hdmi_mode(raw_mode):
-	if raw_mode[0] == "AUTO":
-		return 0
-	elif raw_mode[0] == "VGA":
-		return 1
-	elif raw_mode[0] == "":
-		return 0
-	elif raw_mode[0] != "":
-		mode = hdtv_modes[raw_mode[0]+raw_mode[1]]
-		return mode
 
 def include_option(option, value):
 	#Make 100% sure we get the value in string format
