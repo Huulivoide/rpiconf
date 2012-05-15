@@ -29,12 +29,51 @@ l2 = False
 #When true use the unified gpu chip frequency changing
 gpu_freq_uni = True
 
-##Load some of our widgets from the glade file to the current namespace
-#Load our window from the glade/gtkbuilder file
+###Load our dynamic widgets from the glade file to the current namespace
 builder = Gtk.Builder()
 builder.add_from_file("mainwindow.ui")
-refreshrate_box = builder.get_object("combo_refreshrate")
+##Main and about windows
+window = builder.get_object("mainwindow")
 about = builder.get_object("aboutwindow")
+##video_output
+#Comboboxes
+combo_analog = builder.get_object("combo_analog_format")
+compo_aspectratio = builder.get_object("combo_aspectratio")
+combo_digital_resolution = builder.get_object("combo_digital_resolution")
+combo_refreshrate = builder.get_object("combo_refreshrate")
+combo_power = builder.get_object("combo_power")
+#spinbuttons
+spin_overscan_top = builder.get_object("spin_overscan_top")
+spin_overscan_bottom = builder.get_object("spin_overscan_bottom")
+spin_overscan_left = builder.get_object("spin_overscan_left")
+spin_overscan_right = builder.get_object("spin_overscan_right")
+spin_fb_height = builder.get_object("spin_fb_height")
+spin_fb_width = builder.get_object("spin_fb_width")
+#Radio and checkbutons
+radio_hdmi = builder.get_object("radio_hdmi")
+#radio_hdmi and radio_dvi are connect to each others, so basicly setting
+#radio_hdmi to true or false should also set the radio_dvi
+check_refreshrate = builder.get_object("check_refreshrate")
+##Performance_tuning
+#spinbuttons
+spin_cpu = builder.get_object("spin_cpu")
+spin_gpu = builder.get_object("spin_gpu")
+spin_core = builder.get_object("spin_core")
+spin_3d = builder.get_object("spin_3d")
+spin_video = builder.get_object("spin_video")
+spin_isp = builder.get_object("spin_isp")
+spin_sdram = builder.get_object("spin_sdram")
+spin_core_voltage = builder.get_object("spin_core_voltage")
+spin_sdram_voltage = builder.get_object("spin_sdram_voltage")
+spin_sdramc_voltage = builder.get_object("spin_sdramc_voltage")
+spin_sdramp_voltage = builder.get_object("spin_sdramp_voltage")
+spin_sdrami_voltage = builder.get_object("spin_sdrami_voltage")
+#Radio and checkbuttons
+radio_gpu_uni = builder.get_object("radio_gpu_uni")
+radio_voltage_unified = builder.get_object("radio_voltage_unified")
+#Again assume only one radio button is needed from the group
+check_l2 = builder.get_object ("check_l2")
+check_test = builder.get_object("check_test")
 
 #Get the proper filename for our config file.
 #Filename must ALWAYS be the last argument.
@@ -77,14 +116,14 @@ def populate_options(option):
 def populate_refreshrates(mode):
 	# Set the refreshrate list to that of supported ones
 	#Make 1st sure we are clean of the old ones
-	refreshrate_box.remove_all()
+	combo_refreshrate.remove_all()
 	if mode != "AUTO" and mode != "VGA":
 		if advanced:
 			list_name = "refreshrates_" + mode + "_advanced"
 		else:
 			list_name = "refreshrates_" + mode
 		for rate in rpiconf.refreshrates[list_name]:
-			refreshrate_box.append_text(rate)
+			combo_refreshrate.append_text(rate)
 
 
 #Populate the config with all of the supported
@@ -221,6 +260,5 @@ class Handler:
 
 
 builder.connect_signals(Handler())
-window = builder.get_object("mainwindow")
 window.show_all()
 Gtk.main()
