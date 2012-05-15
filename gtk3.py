@@ -104,14 +104,6 @@ generated_config += (
 #For more information visit our website \n\
 #https://github.com/Huulivoide/rpiconf\n\n\n")
 
-#This check whether the configfile has the option defined
-#and sets it accordigly to our config object.
-def populate_options(option):
-	if config_parser.has_option('dummy', option):
-		#I was told to be extreamly carefull with this, so I think it
-		#is a bit dangerous way to do stuff. So Im more than happy
-		#if someone tells me a more safer way to do this
-		setattr(config , option, config_parser.get('dummy', option))
 
 def populate_refreshrates(mode):
 	# Set the refreshrate list to that of supported ones
@@ -129,7 +121,11 @@ def populate_refreshrates(mode):
 #Populate the config with all of the supported
 #settings defined in our conf file
 for option in rpiconf.options:
-	populate_options(option)
+	if config_parser.has_option('dummy', option):
+		#I was told to be extreamly carefull with this, so I think it
+		#is a bit dangerous way to do stuff. So Im more than happy
+		#if someone tells me a more safer way to do this
+		setattr(config , option, config_parser.get('dummy', option))
 
 ##Define what to do, when we get a signal from the main GTK loop
 class Handler:
