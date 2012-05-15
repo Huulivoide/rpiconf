@@ -81,7 +81,8 @@ class rpi_config:
 		elif raw_mode[0] == "":
 			self.hdmi_mode = 0
 		elif raw_mode[0] != "":
-			self.hdmi_mode = hdtv_modes[raw_mode[0]+raw_mode[1]]
+			self.hdmi_mode = hdtv_modes[str(raw_mode[0]) + \
+										str(raw_mode[1])]
 ####End functions#####################################################
 
 #Some lists of options
