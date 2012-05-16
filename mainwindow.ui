@@ -353,10 +353,10 @@ is recomended. Brazilians should try PAL-M
 the PAL output as many never SECAM TVs
 also support PAL.</property>
                     <items>
-                      <item translatable="yes">NTSC</item>
-                      <item translatable="yes">NTSC-J</item>
-                      <item translatable="yes">PAL</item>
-                      <item translatable="yes">PAL-M</item>
+                      <item>NTSC</item>
+                      <item>NTSC-J</item>
+                      <item>PAL</item>
+                      <item>PAL-M</item>
                     </items>
                     <signal name="changed" handler="on_sdtv_change" swapped="no"/>
                   </object>
@@ -388,9 +388,9 @@ for a widescreen TV 14:9 or 16:9</property>
                     <property name="tooltip_text" translatable="yes">For classical squre TV select 4:3
 for a widescreen TV 14:9 or 16:9</property>
                     <items>
-                      <item translatable="yes">4:3</item>
-                      <item translatable="yes">14:9</item>
-                      <item translatable="yes">16:9</item>
+                      <item>4:3</item>
+                      <item>14:9</item>
+                      <item>16:9</item>
                     </items>
                     <signal name="changed" handler="on_aspectratio_change" swapped="no"/>
                   </object>
@@ -989,7 +989,7 @@ value.</property>
                     <property name="tooltip_text" translatable="yes">Set the frequecny of the CPU.
 700 is the default and recomended
 value.</property>
-                    <property name="label" translatable="yes">CPU:</property>
+                    <property name="label">CPU:</property>
                   </object>
                   <packing>
                     <property name="y">50</property>
@@ -1053,7 +1053,7 @@ in genral. This setting affect all of the 4
 parts inside the GPU. Use this if you don't
 know what you are doing. 250 is the stock
 and remocemded value, you should use it.</property>
-                    <property name="label" translatable="yes">GPU:</property>
+                    <property name="label">GPU:</property>
                   </object>
                   <packing>
                     <property name="y">110</property>
@@ -1149,7 +1149,7 @@ NOT RECOMENDED!</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">This sets the video decoder chip's
 frequency.</property>
-                    <property name="label" translatable="yes">Video:</property>
+                    <property name="label">Video:</property>
                   </object>
                   <packing>
                     <property name="x">170</property>
@@ -1163,7 +1163,7 @@ frequency.</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">This sets the Image Sensor Pipeline's
 frequency.</property>
-                    <property name="label" translatable="yes">ISP:</property>
+                    <property name="label">ISP:</property>
                   </object>
                   <packing>
                     <property name="x">340</property>
@@ -1178,7 +1178,7 @@ frequency.</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">This sets the 3D model builder chips's
 frequency.</property>
-                    <property name="label" translatable="yes">3D:</property>
+                    <property name="label">3D:</property>
                   </object>
                   <packing>
                     <property name="x">340</property>
@@ -1192,7 +1192,7 @@ frequency.</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">This sets the operating frequency of
 the genral GPU core.</property>
-                    <property name="label" translatable="yes">Core:</property>
+                    <property name="label">Core:</property>
                   </object>
                   <packing>
                     <property name="x">170</property>
@@ -1304,7 +1304,7 @@ frequency.</property>
                     <property name="tooltip_text" translatable="yes">Set the frequency of the SDRAM
 memory. 400 is the default and
 recomended value.</property>
-                    <property name="label" translatable="yes">SDRAM:</property>
+                    <property name="label">SDRAM:</property>
                   </object>
                   <packing>
                     <property name="y">80</property>
@@ -1355,7 +1355,7 @@ recomended value.</property>
 0 is the stock/recomended value.
 Consult the manual on how this
 works.</property>
-                    <property name="label" translatable="yes">Core:</property>
+                    <property name="label">Core:</property>
                   </object>
                   <packing>
                     <property name="y">170</property>
@@ -1366,7 +1366,7 @@ works.</property>
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">SDRAM:</property>
+                    <property name="label">SDRAM:</property>
                   </object>
                   <packing>
                     <property name="y">200</property>
@@ -1380,7 +1380,7 @@ works.</property>
                     <property name="tooltip_text" translatable="yes">Set the SDRAM controller chip
 voltage. See the manual on how
 this works.</property>
-                    <property name="label" translatable="yes">Controller:</property>
+                    <property name="label">Controller:</property>
                   </object>
                   <packing>
                     <property name="x">170</property>
@@ -1395,7 +1395,7 @@ this works.</property>
                     <property name="tooltip_text" translatable="yes">Set the SDRAM I/O chip
 voltage. See the manual on how
 this works.</property>
-                    <property name="label" translatable="yes">I/O:</property>
+                    <property name="label">I/O:</property>
                   </object>
                   <packing>
                     <property name="x">170</property>
@@ -1410,7 +1410,7 @@ this works.</property>
                     <property name="tooltip_text" translatable="yes">Set the SDRAM PHY chip
 voltage. See the manual on how
 this works.</property>
-                    <property name="label" translatable="yes">PHY:</property>
+                    <property name="label">PHY:</property>
                   </object>
                   <packing>
                     <property name="x">170</property>
