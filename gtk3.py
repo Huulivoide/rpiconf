@@ -85,11 +85,10 @@ else:
 
 # Thanks for user Tauran on stackowerflow for this hack
 config_str = io.StringIO()
-config_str.write('[dummy]')
+config_str.write("[dummy]\n")
 if os.path.isfile(configfile):
 	config_str.write(open(configfile, 'r').read())
 config_str.seek(0, os.SEEK_SET)
-
 config_parser = configparser.ConfigParser()
 config_parser.read_file(config_str)
 
