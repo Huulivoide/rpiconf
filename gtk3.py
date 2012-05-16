@@ -123,7 +123,6 @@ def populate_refreshrates(mode):
 
 def set_refreshrate(resolution, refreshrate):
 	list_name = ratelist_name(resolution)
-	print (list_name)
 	ratelist = rpiconf.refreshrates[list_name]
 	populate_refreshrates(resolution)
 	index = ratelist.index(refreshrate)
