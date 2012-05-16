@@ -11,15 +11,9 @@ object which holds the settings.
 
 TODO:    
 * Implement code to only allow global gpu freq/voltage or individual ones.  
-* Implement file saving to a custom file.
 * Implement the filesaving dialogues.  
 * Add gettext support and translate into Finnish. Also optimize layout to better fit translated strings.
 
-###CONTRIBUTOR:  
-If you want to contribute code to this project, please try to  
-avoid super optimized and expert code (if such exist) I want to keep this  
-simple so even beginners can easily get a hang of what is going on, it is  
-for the RPi after all.
 
 ###License  
 This piece of software is given to you under the following license  
