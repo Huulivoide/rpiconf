@@ -510,49 +510,6 @@ for more information.</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkRadioButton" id="radio_hdmi">
-                    <property name="label" translatable="yes">Output HDMI signal</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="height_request">22</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="tooltip_text" translatable="yes">Output pure HDMI signal from the HDMI port.
-If you are using HDMI connector this is what
-you want</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="xalign">0</property>
-                    <property name="active">True</property>
-                    <property name="draw_indicator">True</property>
-                    <signal name="toggled" handler="on_drive_change" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="y">132</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkRadioButton" id="radio_dvi">
-                    <property name="label" translatable="yes">Output DVI signal</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="height_request">22</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="tooltip_text" translatable="yes">If you are connectiong to DVI monitor, with a
-HDMI-DVI cable or HDMI-&gt;DVI adapter choose
-this.</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="xalign">0</property>
-                    <property name="active">True</property>
-                    <property name="draw_indicator">True</property>
-                    <property name="group">radio_hdmi</property>
-                  </object>
-                  <packing>
-                    <property name="x">198</property>
-                    <property name="y">132</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkSeparator" id="separator_digital_misc">
                     <property name="width_request">502</property>
                     <property name="height_request">1</property>
@@ -898,6 +855,27 @@ manual for more information.</property>
                   <packing>
                     <property name="x">220</property>
                     <property name="y">155</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="check_use_dvi">
+                    <property name="label" translatable="yes">Output DVI signal instead of HDMI from the HDMI port</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="height_request">22</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Normally the signal comming out from
+the HDMI port is regular HDMI signal.
+By checking this the signal comming
+out of the port will be a DVI signal.</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="xalign">0</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_drive_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="y">130</property>
                   </packing>
                 </child>
               </object>

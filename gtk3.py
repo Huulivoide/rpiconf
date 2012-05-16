@@ -49,10 +49,8 @@ spin_overscan_left = builder.get_object("spin_overscan_left")
 spin_overscan_right = builder.get_object("spin_overscan_right")
 spin_fb_height = builder.get_object("spin_fb_height")
 spin_fb_width = builder.get_object("spin_fb_width")
-#Radio and checkbutons
-radio_hdmi = builder.get_object("radio_hdmi")
-#radio_hdmi and radio_dvi are connect to each others, so basicly setting
-#radio_hdmi to true or false should also set the radio_dvi
+#Checkbutons
+check_use_dvi = builder.get_object("check_use_dvi")
 check_refreshrate = builder.get_object("check_refreshrate")
 ##Performance_tuning
 #spinbuttons
@@ -104,6 +102,7 @@ generated_config += (
 #https://github.com/Huulivoide/rpiconf\n\n\n")
 
 def ratelist_name(mode):
+	global advanced
 	if mode != "AUTO" and mode != "VGA":
 		if advanced:
 			list_name = "refreshrates_" + mode + "_advanced"
@@ -124,10 +123,17 @@ def populate_refreshrates(mode):
 
 def set_refreshrate(resolution, refreshrate):
 	list_name = ratelist_name(resolution)
+	print (list_name)
 	ratelist = rpiconf.refreshrates[list_name]
 	populate_refreshrates(resolution)
 	index = ratelist.index(refreshrate)
 	combo_refreshrate.set_active(index)
+
+def check_advanced(refreshrate):
+	global advanced
+	if "H" in refreshrate or "x" in refreshrate or "rb" in refreshrate:
+		advanced = True
+		check_refreshrate.set_active(True)
 
 #Populate the config with all of the supported
 #settings defined in our conf file
@@ -190,10 +196,12 @@ for option in rpiconf.options:
 			if mode_name[3:4] == 'i' or mode_name[3:4] == 'p':
 				resolution = mode_name[:4]
 				refreshrate = mode_name[4:]
+				check_advanced(refreshrate)
 				set_refreshrate(resolution, refreshrate)
 			elif mode_name[4:5] == 'i' or mode_name[4:5] == 'p':
 				resolution = mode_name[:5]
 				refreshrate = mode_name[5:]
+				check_advanced(refreshrate)
 				set_refreshrate(resolution, refreshrate)
 			else:
 				resolution = 'VGA'
@@ -202,6 +210,9 @@ for option in rpiconf.options:
 			combo_digital_resolution.set_active(index)
 		elif option == 'hdmi_boost':
 			combo_power.set_active(value)
+		elif option == 'hdmi_drive':
+			if value == 1:
+				check_use_dvi.set_active(True)
 
 		elif option == 'sdtv_mode':
 			combo_analog.set_active(value)
@@ -341,9 +352,6 @@ class Handler:
 
 	def on_print_variables(self, button):
 		print(generated_config)
-
-
-
 
 
 builder.connect_signals(Handler())
