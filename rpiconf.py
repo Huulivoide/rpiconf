@@ -97,6 +97,9 @@ options = ['arm_freq', 'gpu_freq', 'core_freq', 'h264_freq',
 sdtv_modes={'NTSC' : 0, 'NTSC-J' : 1, 'PAL' : 2, 'PAL-M' :3}
 aspectratios={'4:3' : 1, '14:9' : 2, '16:9' : 3}
 
+hdtv_resolutions=['VGA', '240p', '288p', '480i', '480p', '576i', \
+'576p', '720p', '1080i', '1080p']
+
 hdtv_modes={'VGA' : 1, '480p60' : 2, '480p60H' : 3, '720p60' : 4, 
 '1080i60' : 5, '480i60' : 6, '480i60H' : 7, '240p60' : 8, 
 '240p60H' : 9, '480i60_4x' : 10, '480i60_4xH' : 11, '240p60_4x' : 12, 

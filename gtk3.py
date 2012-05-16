@@ -38,7 +38,7 @@ about = builder.get_object("aboutwindow")
 ##video_output
 #Comboboxes
 combo_analog = builder.get_object("combo_analog_format")
-compo_aspectratio = builder.get_object("combo_aspectratio")
+combo_aspectratio = builder.get_object("combo_aspectratio")
 combo_digital_resolution = builder.get_object("combo_digital_resolution")
 combo_refreshrate = builder.get_object("combo_refreshrate")
 combo_power = builder.get_object("combo_power")
@@ -103,28 +103,119 @@ generated_config += (
 #For more information visit our website \n\
 #https://github.com/Huulivoide/rpiconf\n\n\n")
 
-
-def populate_refreshrates(mode):
-	# Set the refreshrate list to that of supported ones
-	#Make 1st sure we are clean of the old ones
-	combo_refreshrate.remove_all()
+def ratelist_name(mode):
 	if mode != "AUTO" and mode != "VGA":
 		if advanced:
 			list_name = "refreshrates_" + mode + "_advanced"
 		else:
 			list_name = "refreshrates_" + mode
+		return list_name
+	else:
+		return ''
+
+def populate_refreshrates(mode):
+	# Set the refreshrate list to that of supported ones
+	#Make 1st sure we are clean of the old ones
+	combo_refreshrate.remove_all()
+	list_name = ratelist_name(mode)
+	if list_name != '':
 		for rate in rpiconf.refreshrates[list_name]:
 			combo_refreshrate.append_text(rate)
 
+def set_refreshrate(resolution, refreshrate):
+	list_name = ratelist_name(resolution)
+	ratelist = rpiconf.refreshrates[list_name]
+	populate_refreshrates(resolution)
+	index = ratelist.index(refreshrate)
+	combo_refreshrate.set_active(index)
 
 #Populate the config with all of the supported
 #settings defined in our conf file
 for option in rpiconf.options:
 	if config_parser.has_option('dummy', option):
+		value = int(config_parser.get('dummy', option))
 		#I was told to be extreamly carefull with this, so I think it
 		#is a bit dangerous way to do stuff. So Im more than happy
 		#if someone tells me a more safer way to do this
-		setattr(config , option, config_parser.get('dummy', option))
+		setattr(config , option, value)
+
+	if getattr(config, option) != 0:
+		if option == 'arm_freq':
+			spin_cpu.set_value(value)
+		elif option == 'gpu_freq':
+			spin_gpu.set_value(value)
+		elif option == 'core_freq':
+			spin_core.set_value(value)
+		elif option == 'h264_freq':
+			spin_video.set_value(value)
+		elif option == 'isp_freq':
+			spin_isp.set_value(value)
+		elif option == 'v3d_freq':
+			spin_3d.set_value(value)
+		elif option == 'sdram_freq':
+			spin_sdram.set_value(value)
+		elif option == 'over_voltage':
+			spin_core_voltage.set_value(value)
+		elif option == 'over_voltage_sdram':
+			spin_sdram_voltage.set_value(value)
+		elif option == 'over_voltage_sdram_c':
+			spin_sdramc_voltage.set_value(value)
+		elif option == 'over_voltage_sdram_i':
+			spin_sdrami_voltage.set_value(value)
+		elif option == 'over_voltage_sdram_p':
+			spin_sdramp_voltage.set_value(value)
+		elif option == 'overscan_left':
+			spin_overscan_left.set_value(value)
+		elif option == 'overscan_right':
+			spin_overscan_right.set_value(value)
+		elif option == 'overscan_top':
+			spin_overscan_top.set_value(value)
+		elif option == 'overscan_bottom':
+			spin_overscan_bottom.set_value(value)
+		elif option == 'framebuffer_width':
+			spin_fb_width.set_value(value)
+		elif option == 'framebuffer_height':
+			spin_fb_height.set_value(value)
+
+		elif option == 'hdmi_mode':
+			#We need to invert/flip the list of HDMI modes so that
+			#instead of getting the numerical value of the mode with the
+			#text, we can fecth the text/name of the mode with the value
+			inverted_hdmi_modes = \
+				dict([[v,k] for k,v in rpiconf.hdtv_modes.items()])
+			mode_name = inverted_hdmi_modes[value]
+			#split the mode_name into resolution and refreshrate.
+			#mode_name format is RESO(i/p)REFRESHRATE, reso is 3/4 chars
+			#long. See if 4th char is i or p at 1st.
+			if mode_name[3:4] == 'i' or mode_name[3:4] == 'p':
+				resolution = mode_name[:4]
+				refreshrate = mode_name[4:]
+				set_refreshrate(resolution, refreshrate)
+			elif mode_name[4:5] == 'i' or mode_name[4:5] == 'p':
+				resolution = mode_name[:5]
+				refreshrate = mode_name[5:]
+				set_refreshrate(resolution, refreshrate)
+			else:
+				resolution = 'VGA'
+				
+			index = rpiconf.hdtv_resolutions.index(resolution)
+			combo_digital_resolution.set_active(index)
+		elif option == 'hdmi_boost':
+			combo_power.set_active(value)
+
+		elif option == 'sdtv_mode':
+			combo_analog.set_active(value)
+		elif option == 'sdtv_aspect':
+			combo_aspectratio.set_active(value -1)
+			#aspectratio has values 1/2/3, -1 to make it mach with index
+
+		elif option == 'test_mode':
+			check_test.set_active(True)
+			test = True
+		elif option == 'enable_l2cache':
+			check_l2.set_active(True)
+			l2 = True
+		
 
 ##Define what to do, when we get a signal from the main GTK loop
 class Handler:
@@ -250,6 +341,7 @@ class Handler:
 
 	def on_print_variables(self, button):
 		print(generated_config)
+
 
 
 
