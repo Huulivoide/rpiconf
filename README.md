@@ -12,8 +12,7 @@ object which holds the settings.
 TODO:    
 * Implement code to only allow global gpu freq/voltage or individual ones.  
 * Implement file saving to a custom file.
-* Implement the filesaving dialogues.
-* Try to preload the existing values into their places.  
+* Implement the filesaving dialogues.  
 * Add gettext support and translate into Finnish. Also optimize layout to better fit translated strings.
 
 ###CONTRIBUTOR:  
