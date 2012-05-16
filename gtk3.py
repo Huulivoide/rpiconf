@@ -229,8 +229,6 @@ for option in rpiconf.options:
 
 ##Define what to do, when we get a signal from the main GTK loop
 class Handler:
-	def onDeleteWindow(self, *args):
-		Gtk.main_quit(*args)
 ###Video options########################################################
 	def on_check_refreshrate_toggled(self, button):
 		global advanced
@@ -330,6 +328,9 @@ class Handler:
 		else:
 			config.enable_l2cache = 0
 ###End Performance tuning options######################################
+	def onDeleteWindow(self, *args):
+		Gtk.main_quit(*args)
+		
 	def on_show_about(self, window):
 		about.show_all()
 
@@ -348,9 +349,6 @@ class Handler:
 		file = open(configfile, 'w')
 		file.write(generated_config)
 		file.close()
-
-	def on_print_variables(self, button):
-		print(generated_config)
 
 
 builder.connect_signals(Handler())

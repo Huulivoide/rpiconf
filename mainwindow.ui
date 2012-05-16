@@ -705,23 +705,6 @@ from the bottom of the screen?</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="button_test">
-                    <property name="label" translatable="yes">DUMMY</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="width_request">55</property>
-                    <property name="height_request">25</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <property name="use_action_appearance">False</property>
-                    <signal name="pressed" handler="on_print_variables" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="x">447</property>
-                    <property name="y">319</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkSpinButton" id="spin_fb_height">
                     <property name="width_request">100</property>
                     <property name="height_request">28</property>
