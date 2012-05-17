@@ -152,12 +152,20 @@ for option in rpiconf.options:
 			spin_gpu.set_value(value)
 		elif option == 'core_freq':
 			spin_core.set_value(value)
+			check_individual_gpu.set_active(True)
+			gpu_freq_uni = False
 		elif option == 'h264_freq':
 			spin_video.set_value(value)
+			check_individual_gpu.set_active(True)
+			gpu_freq_uni = False
 		elif option == 'isp_freq':
 			spin_isp.set_value(value)
+			check_individual_gpu.set_active(True)
+			gpu_freq_uni = False
 		elif option == 'v3d_freq':
 			spin_3d.set_value(value)
+			check_individual_gpu.set_active(True)
+			gpu_freq_uni = False
 		elif option == 'sdram_freq':
 			spin_sdram.set_value(value)
 		elif option == 'over_voltage':
@@ -166,10 +174,16 @@ for option in rpiconf.options:
 			spin_sdram_voltage.set_value(value)
 		elif option == 'over_voltage_sdram_c':
 			spin_sdramc_voltage.set_value(value)
+			check_individual_voltage.set_active(True)
+			voltage_uni = False
 		elif option == 'over_voltage_sdram_i':
 			spin_sdrami_voltage.set_value(value)
+			check_individual_voltage.set_active(True)
+			voltage_uni = False
 		elif option == 'over_voltage_sdram_p':
 			spin_sdramp_voltage.set_value(value)
+			check_individual_voltage.set_active(True)
+			voltage_uni = False
 		elif option == 'overscan_left':
 			spin_overscan_left.set_value(value)
 		elif option == 'overscan_right':
