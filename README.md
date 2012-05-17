@@ -9,8 +9,7 @@ All of the elements in the video output settings page have been connected to
 the code, so changing their values will lead to a change in out config
 object which holds the settings.
 
-TODO:    
-* Implement code to only allow global gpu freq/voltage or individual ones.  
+TODO:  
 * Implement the filesaving dialogues.  
 * Add gettext support and translate into Finnish. Also optimize layout to better fit translated strings.
 
