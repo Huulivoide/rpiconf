@@ -979,54 +979,6 @@ value.</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkRadioButton" id="radio_gpu_uni">
-                    <property name="label" translatable="yes">Unified GPU frequency</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="width_request">157</property>
-                    <property name="height_request">22</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="tooltip_text" translatable="yes">Select wether to use one and same
-frequency for all parts of the GPU or
-select differend frequency for each
-GPU part separetely.</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="xalign">0</property>
-                    <property name="active">True</property>
-                    <property name="draw_indicator">True</property>
-                    <property name="group">radio_gpu_independed</property>
-                    <signal name="toggled" handler="on_gpu_type_change" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="x">208</property>
-                    <property name="y">20</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkRadioButton" id="radio_gpu_independed">
-                    <property name="label" translatable="yes">Independed frequencys</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="width_request">159</property>
-                    <property name="height_request">22</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="tooltip_text" translatable="yes">Select wether to use one and same
-frequency for all parts of the GPU or
-select differend frequency for each
-GPU part separetely.</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="xalign">0</property>
-                    <property name="active">True</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                  <packing>
-                    <property name="x">208</property>
-                    <property name="y">42</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkLabel" id="label_gpu_frequency">
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
@@ -1423,47 +1375,6 @@ this works.</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkRadioButton" id="radio_voltage_unified">
-                    <property name="label" translatable="yes">Unified SDRAM voltage</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="height_request">22</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="tooltip_text" translatable="yes">Use the same voltage for all of the
-SDRAM parts.</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="xalign">0</property>
-                    <property name="active">True</property>
-                    <property name="draw_indicator">True</property>
-                    <property name="group">radio_voltage_individual</property>
-                  </object>
-                  <packing>
-                    <property name="x">208</property>
-                    <property name="y">140</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkRadioButton" id="radio_voltage_individual">
-                    <property name="label" translatable="yes">Independed voltages</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="height_request">22</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="tooltip_text" translatable="yes">Set SDRAM controller, I/O and PHY
-voltages independendly from
-eachothers.</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="xalign">0</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                  <packing>
-                    <property name="x">208</property>
-                    <property name="y">162</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkSpinButton" id="spin_sdram_voltage">
                     <property name="width_request">100</property>
                     <property name="height_request">28</property>
@@ -1558,6 +1469,46 @@ this works.</property>
                   <packing>
                     <property name="x">230</property>
                     <property name="y">252</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="check_individual_voltage">
+                    <property name="label" translatable="yes" comments="You can use only one line too, if you can fit it.">Use differend voltage for differend
+SDRAM parts.</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="height_request">22</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Set the SDRAM chips parts' voltages
+independtly from eachothers.</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="xalign">0</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_individual_voltage_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">208</property>
+                    <property name="y">140</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="check_individual_gpu">
+                    <property name="label" translatable="yes" comments="You can use only one line too, if you can fit it.">Use differend frequencys for differend
+parts of the GPU chip</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="height_request">22</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="xalign">0</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_individual_gpu_change" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">208</property>
+                    <property name="y">20</property>
                   </packing>
                 </child>
               </object>

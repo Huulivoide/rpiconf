@@ -28,6 +28,7 @@ test = False
 l2 = False
 #When true use the unified gpu chip frequency changing
 gpu_freq_uni = True
+voltage_uni = True
 
 ###Load our dynamic widgets from the glade file to the current namespace
 builder = Gtk.Builder()
@@ -66,9 +67,9 @@ spin_sdram_voltage = builder.get_object("spin_sdram_voltage")
 spin_sdramc_voltage = builder.get_object("spin_sdramc_voltage")
 spin_sdramp_voltage = builder.get_object("spin_sdramp_voltage")
 spin_sdrami_voltage = builder.get_object("spin_sdrami_voltage")
-#Radio and checkbuttons
-radio_gpu_uni = builder.get_object("radio_gpu_uni")
-radio_voltage_unified = builder.get_object("radio_voltage_unified")
+#Checkbuttons
+check_individual_gpu = builder.get_object("check_individual_gpu")
+check_individual_voltage = builder.get_object("check_individual_voltage")
 #Again assume only one radio button is needed from the group
 check_l2 = builder.get_object ("check_l2")
 check_test = builder.get_object("check_test")
@@ -294,13 +295,20 @@ class Handler:
 	def on_3d_change(sefl, spin):
 		config.v3d_freq = spin.get_value_as_int()
 
-	def on_gpu_type_change(self, button):
+	def on_individual_gpu_change(self, button):
 		global gpu_freq_uni
 		state = button.get_active()
 		if state == True:
 			gpu_freq_uni = True
 		else:
 			gpu_freq_uni = False
+	def on_individual_voltage_change(self,button):
+		global voltage_uni
+		state = button.get_active()
+		if state == True:
+			voltage_uni = True
+		else:
+			voltage_uni = False
 
 	def on_core_voltage_change(sefl, spin):
 		config.over_voltage = spin.get_value_as_int()
