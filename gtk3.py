@@ -311,18 +311,10 @@ class Handler:
 
 	def on_individual_gpu_change(self, button):
 		global gpu_freq_uni
-		state = button.get_active()
-		if state == True:
-			gpu_freq_uni = True
-		else:
-			gpu_freq_uni = False
+		gpu_freq_uni = not button.get_active()
 	def on_individual_voltage_change(self,button):
 		global voltage_uni
-		state = button.get_active()
-		if state == True:
-			voltage_uni = True
-		else:
-			voltage_uni = False
+		voltage_uni = not button.get_active()
 
 	def on_core_voltage_change(sefl, spin):
 		config.over_voltage = spin.get_value_as_int()
@@ -362,6 +354,8 @@ class Handler:
 	def on_save(self, menu):
 		global generated_config
 		config.overscan_state()
+		config.use_unified_freq(gpu_freq_uni)
+		config.use_unified_voltages(voltage_uni)
 
 		config.translate_hdmi_mode(raw_hdmi_mode)
 		for option in rpiconf.options:

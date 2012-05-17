@@ -73,6 +73,22 @@ class rpi_config:
 		else:
 			self.disable_overscan = 0
 
+	def use_unified_voltages(self, use_individual):
+		if use_individual == False:
+			self.over_voltage_sdram = 0
+		else:
+			self.over_voltage_sdram_c = 0
+			self.over_voltage_sdram_i = 0
+			self.over_voltage_sdram_p = 0
+	def use_unified_freq(self, use_individual):
+		if use_individual == False:
+			self.gpu_freq = 0
+		else:
+			self.core_freq = 0
+			self.h264_freq = 0
+			self.isp_freq = 0
+			self.v3d_freq = 0
+
 	def translate_hdmi_mode(self, raw_mode):
 		if raw_mode[0] == "AUTO":
 			self.hdmi_mode = 0
