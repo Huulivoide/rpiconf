@@ -150,6 +150,9 @@ for option in rpiconf.options:
 			spin_cpu.set_value(value)
 		elif option == 'gpu_freq':
 			spin_gpu.set_value(value)
+		elif option == 'sdram_freq':
+			spin_sdram.set_value(value)
+
 		elif option == 'core_freq':
 			spin_core.set_value(value)
 			check_individual_gpu.set_active(True)
@@ -166,12 +169,12 @@ for option in rpiconf.options:
 			spin_3d.set_value(value)
 			check_individual_gpu.set_active(True)
 			gpu_freq_uni = False
-		elif option == 'sdram_freq':
-			spin_sdram.set_value(value)
+
 		elif option == 'over_voltage':
 			spin_core_voltage.set_value(value)
 		elif option == 'over_voltage_sdram':
 			spin_sdram_voltage.set_value(value)
+
 		elif option == 'over_voltage_sdram_c':
 			spin_sdramc_voltage.set_value(value)
 			check_individual_voltage.set_active(True)
@@ -184,6 +187,7 @@ for option in rpiconf.options:
 			spin_sdramp_voltage.set_value(value)
 			check_individual_voltage.set_active(True)
 			voltage_uni = False
+
 		elif option == 'overscan_left':
 			spin_overscan_left.set_value(value)
 		elif option == 'overscan_right':
@@ -192,6 +196,7 @@ for option in rpiconf.options:
 			spin_overscan_top.set_value(value)
 		elif option == 'overscan_bottom':
 			spin_overscan_bottom.set_value(value)
+
 		elif option == 'framebuffer_width':
 			spin_fb_width.set_value(value)
 		elif option == 'framebuffer_height':
@@ -245,14 +250,8 @@ for option in rpiconf.options:
 ##Define what to do, when we get a signal from the main GTK loop
 class Handler:
 ###Video options########################################################
-	def on_check_refreshrate_toggled(self, button):
-		global advanced
-		advanced = not advanced
-		populate_refreshrates(raw_hdmi_mode[0])
-
 	def on_sdtv_change(self, combo):
 		config.sdtv_mode = rpiconf.sdtv_modes[combo.get_active_text()]
-
 	def on_aspectratio_change(self, combo):
 		config.sdtv_aspect = \
 			rpiconf.aspectratios[combo.get_active_text()]
@@ -260,10 +259,12 @@ class Handler:
 	def on_resolution_change(self, combo):
 		raw_hdmi_mode[0] = combo.get_active_text()
 		populate_refreshrates(raw_hdmi_mode[0])
-
+	def on_check_refreshrate_toggled(self, button):
+		global advanced
+		advanced = not advanced
+		populate_refreshrates(raw_hdmi_mode[0])
 	def on_refreshrate_change(self, combo):
 		raw_hdmi_mode[1] = combo.get_active_text()
-
 	def on_drive_change(self, button):	
 		if button.get_active() == True:
 			config.hdmi_drive = 2
@@ -300,6 +301,7 @@ class Handler:
 		config.gpu_freq = spin.get_value_as_int()
 	def on_sdram_change(sefl, spin):
 		config.sdram_freq = spin.get_value_as_int()
+
 	def on_core_change(sefl, spin):
 		config.core_freq = spin.get_value_as_int()
 	def on_video_change(sefl, spin):
@@ -320,6 +322,7 @@ class Handler:
 		config.over_voltage = spin.get_value_as_int()
 	def on_sdram_voltage_change(sefl, spin):
 		config.over_voltage_sdram = spin.get_value_as_int()
+
 	def on_sdramc_voltage_change(sefl, spin):
 		config.over_voltage_sdram_c = spin.get_value_as_int()
 	def on_sdramp_voltage_change(sefl, spin):
@@ -344,10 +347,8 @@ class Handler:
 ###End Performance tuning options######################################
 	def onDeleteWindow(self, *args):
 		Gtk.main_quit(*args)
-		
 	def on_show_about(self, window):
 		about.show_all()
-
 	def on_about_close(sefl, window, name):
 		about.hide()
 
