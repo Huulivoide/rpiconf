@@ -10,9 +10,8 @@ the code, so changing their values will lead to a change in out config
 object which holds the settings.
 
 TODO:  
-* Implement the filesaving dialogues.  
 * Add gettext support and translate into Finnish. Also optimize layout to better fit translated strings.
-
+* Implemet error handling (non writable filesystem...)
 
 ###License  
 This piece of software is given to you under the following license  
