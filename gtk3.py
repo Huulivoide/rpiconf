@@ -340,8 +340,7 @@ class Handler:
 		config.use_unified_voltages(voltage_uni)
 
 		config.translate_hdmi_mode(raw_hdmi_mode)
-		for option in rpiconf.options:
-			config.include_option(option)
+		config.include_option()
 
 		file = open(config.configfile, 'w')
 		file.write(config.generated_config)

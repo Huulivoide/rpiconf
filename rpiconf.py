@@ -194,14 +194,14 @@ class rpi_config:
 		else:
 			self.configfile = "config.txt"
 
-	def include_option(self, option):
-		#Make 100% sure we get the value in string format
-		value = str(getattr(self, option))
-		#if option == 
-		if value != "0":
-			self.generated_config += (option + "=" + value + '\n')
-		else:
-			self.generated_config += ("#Value of '" + option
-				+ "' not defined! Exluding it from config file!\n")
+	def include_option(self):
+		for option in options:
+			#Make 100% sure we get the value in string format
+			value = str(getattr(self, option))
+			if value != "0":
+				self.generated_config += (option + "=" + value + '\n')
+			else:
+				self.generated_config += ("#Value of '" + option
+					+ "' not defined! Exluding it from config file!\n")
 
 ####End functions#####################################################
