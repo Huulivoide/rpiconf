@@ -4,10 +4,8 @@ rpiconf
 A GUI for editing Raspberry Pi config.txt file
 Written int Python3 and Gtk+3
 
-This is still a work in progress and cannot generate fail-proof config files.
-All of the elements in the video output settings page have been connected to
-the code, so changing their values will lead to a change in out config
-object which holds the settings.
+Download from:  
+http://huulivoide.pp.fi/public/rpiconf
 
 TODO:  
 * Add gettext support and translate into Finnish. Also optimize layout to better fit translated strings.
