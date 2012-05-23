@@ -3,6 +3,67 @@ import configparser
 import io #We need to emulate a dummy [section] header for
           #configparesr to underdstand our config.txt file.
 
+
+#Some lists of options
+options = ['arm_freq', 'gpu_freq', 'core_freq', 'h264_freq', 
+'isp_freq', 'v3d_freq', 'sdram_freq', 'over_voltage', 
+'over_voltage_sdram', 'over_voltage_sdram_c', 'over_voltage_sdram_i', 
+'over_voltage_sdram_p', 'sdtv_mode', 'sdtv_aspect', 'hdmi_mode', 
+'hdmi_drive', 'hdmi_boost', 'disable_overscan','overscan_left',
+'overscan_right', 'overscan_top', 'overscan_bottom',
+'framebuffer_width', 'framebuffer_height', 'test_mode', 'enable_l2cache']
+
+sdtv_modes={'NTSC' : 0, 'NTSC-J' : 1, 'PAL' : 2, 'PAL-M' :3}
+aspectratios={'4:3' : 1, '14:9' : 2, '16:9' : 3}
+
+hdtv_resolutions=['VGA', '240p', '288p', '480i', '480p', '576i', \
+'576p', '720p', '1080i', '1080p']
+
+hdtv_modes={'VGA' : 1, '480p60' : 2, '480p60H' : 3, '720p60' : 4, 
+'1080i60' : 5, '480i60' : 6, '480i60H' : 7, '240p60' : 8, 
+'240p60H' : 9, '480i60_4x' : 10, '480i60_4xH' : 11, '240p60_4x' : 12, 
+'240p60_4xH' : 13, '480p60_2x' : 14, '480p60_2xH' : 15, 
+'1080p60' : 16, '576p50' : 17, '576p50H' : 18, '720p50' : 19, 
+'1080i50' : 20, '576i50' : 21, '576i50H' : 22, '288p50' : 23, 
+'288p50H' : 24, '576i50_4x' : 25, '576i50_4xH' : 26, '288p50_4x' : 27, 
+'288p50_4xH' : 28, '576p50_2x' : 29, '576p50_2xH' : 30, 
+'1080p50' : 31, '1080p24' : 32, '1080p25' : 33, '1080p30' : 34, 
+'480p60_4x' : 35, '480p60_4xH' : 36, '576p50_4x' : 37, 
+'576p50_4xH' : 38, '1080i50_rb' : 39, '1080i100' : 40, '720p100' : 41, 
+'576p100' : 42, '576p100H' : 43, '576i100' : 44, '576i100H' : 45, 
+'1080i120' : 46, '720p120' : 47, '480p120' : 48, '480p120H' : 49, 
+'480i120' : 50, '480i120H' : 51, '576p200' : 52, '576p200H' : 53, 
+'576i200' : 54, '576i200H' : 55, '480p240' : 56, '480p240H' : 57, 
+'480i240' : 58, '480i240H' : 59}
+
+##Usable refreshrates by resolution
+refreshrates = {
+'refreshrates_240p' : ['60'] ,
+'refreshrates_240p_advanced' : ['60', '60H', '60_4x', '60_4xH'] ,
+'refreshrates_288p' : ['50'] ,
+'refreshrates_288p_advanced' : ['50', '50H', '50_4x', '50_4xH'] ,
+'refreshrates_480i' : ['60', '120', '200'] ,
+'refreshrates_480i_advanced' : ['60', '60H', '60_4x', '60_4xH', 
+                              '120', '120H', '240', '240H'] ,
+'refreshrates_480p' : ['60', '120', '200'] ,
+'refreshrates_480p_advanced' : ['60', '60H', '60_2x', '60_2xH', 
+                              '60_4x', '60_4xH', '120', '120H', 
+                              '240', '240H'] ,
+'refreshrates_576i' : ['50', '100', '200'] ,
+'refreshrates_576i_advanced' : ['50', '50H', '50_4x', '50_4xH', 
+                              '100', '100H', '200', '200H'] ,
+'refreshrates_576p' : ['50', '100', '200'] ,
+'refreshrates_576p_advanced' : ['50', '50H', '50_2x', '50_2xH', 
+                              '50_4x', '50_4xH', '100', '100H', 
+                              '200', '200H'] ,
+'refreshrates_720p' : ['50', '60', '100', '120'] ,
+'refreshrates_720p_advanced' : ['50', '60', '100', '120'] ,
+'refreshrates_1080i' : ['50', '60', '100', '120'] ,
+'refreshrates_1080i_advanced' : ['50', '50_rb', '60', '100', '120'] ,
+'refreshrates_1080p' : ['24', '25', '30', '50', '60'] ,
+'refreshrates_1080p_advanced' : ['24', '25', '30', '50', '60'] }
+
+
 ####Configfile variables object/class
 ###Overclocking stuff
 ##Set voltage/frewuency variables to 0
@@ -144,62 +205,3 @@ class rpi_config:
 				+ "' not defined! Exluding it from config file!\n")
 
 ####End functions#####################################################
-
-#Some lists of options
-options = ['arm_freq', 'gpu_freq', 'core_freq', 'h264_freq', 
-'isp_freq', 'v3d_freq', 'sdram_freq', 'over_voltage', 
-'over_voltage_sdram', 'over_voltage_sdram_c', 'over_voltage_sdram_i', 
-'over_voltage_sdram_p', 'sdtv_mode', 'sdtv_aspect', 'hdmi_mode', 
-'hdmi_drive', 'hdmi_boost', 'disable_overscan','overscan_left',
-'overscan_right', 'overscan_top', 'overscan_bottom',
-'framebuffer_width', 'framebuffer_height', 'test_mode', 'enable_l2cache']
-
-sdtv_modes={'NTSC' : 0, 'NTSC-J' : 1, 'PAL' : 2, 'PAL-M' :3}
-aspectratios={'4:3' : 1, '14:9' : 2, '16:9' : 3}
-
-hdtv_resolutions=['VGA', '240p', '288p', '480i', '480p', '576i', \
-'576p', '720p', '1080i', '1080p']
-
-hdtv_modes={'VGA' : 1, '480p60' : 2, '480p60H' : 3, '720p60' : 4, 
-'1080i60' : 5, '480i60' : 6, '480i60H' : 7, '240p60' : 8, 
-'240p60H' : 9, '480i60_4x' : 10, '480i60_4xH' : 11, '240p60_4x' : 12, 
-'240p60_4xH' : 13, '480p60_2x' : 14, '480p60_2xH' : 15, 
-'1080p60' : 16, '576p50' : 17, '576p50H' : 18, '720p50' : 19, 
-'1080i50' : 20, '576i50' : 21, '576i50H' : 22, '288p50' : 23, 
-'288p50H' : 24, '576i50_4x' : 25, '576i50_4xH' : 26, '288p50_4x' : 27, 
-'288p50_4xH' : 28, '576p50_2x' : 29, '576p50_2xH' : 30, 
-'1080p50' : 31, '1080p24' : 32, '1080p25' : 33, '1080p30' : 34, 
-'480p60_4x' : 35, '480p60_4xH' : 36, '576p50_4x' : 37, 
-'576p50_4xH' : 38, '1080i50_rb' : 39, '1080i100' : 40, '720p100' : 41, 
-'576p100' : 42, '576p100H' : 43, '576i100' : 44, '576i100H' : 45, 
-'1080i120' : 46, '720p120' : 47, '480p120' : 48, '480p120H' : 49, 
-'480i120' : 50, '480i120H' : 51, '576p200' : 52, '576p200H' : 53, 
-'576i200' : 54, '576i200H' : 55, '480p240' : 56, '480p240H' : 57, 
-'480i240' : 58, '480i240H' : 59}
-
-##Usable refreshrates by resolution
-refreshrates = {
-'refreshrates_240p' : ['60'] ,
-'refreshrates_240p_advanced' : ['60', '60H', '60_4x', '60_4xH'] ,
-'refreshrates_288p' : ['50'] ,
-'refreshrates_288p_advanced' : ['50', '50H', '50_4x', '50_4xH'] ,
-'refreshrates_480i' : ['60', '120', '200'] ,
-'refreshrates_480i_advanced' : ['60', '60H', '60_4x', '60_4xH', 
-                              '120', '120H', '240', '240H'] ,
-'refreshrates_480p' : ['60', '120', '200'] ,
-'refreshrates_480p_advanced' : ['60', '60H', '60_2x', '60_2xH', 
-                              '60_4x', '60_4xH', '120', '120H', 
-                              '240', '240H'] ,
-'refreshrates_576i' : ['50', '100', '200'] ,
-'refreshrates_576i_advanced' : ['50', '50H', '50_4x', '50_4xH', 
-                              '100', '100H', '200', '200H'] ,
-'refreshrates_576p' : ['50', '100', '200'] ,
-'refreshrates_576p_advanced' : ['50', '50H', '50_2x', '50_2xH', 
-                              '50_4x', '50_4xH', '100', '100H', 
-                              '200', '200H'] ,
-'refreshrates_720p' : ['50', '60', '100', '120'] ,
-'refreshrates_720p_advanced' : ['50', '60', '100', '120'] ,
-'refreshrates_1080i' : ['50', '60', '100', '120'] ,
-'refreshrates_1080i_advanced' : ['50', '50_rb', '60', '100', '120'] ,
-'refreshrates_1080p' : ['24', '25', '30', '50', '60'] ,
-'refreshrates_1080p_advanced' : ['24', '25', '30', '50', '60'] }
