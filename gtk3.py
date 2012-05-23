@@ -117,6 +117,18 @@ def check_advanced(refreshrate):
 		advanced = True
 		check_refreshrate.set_active(True)
 
+def save():
+	config.overscan_state()
+	config.use_unified_freq(gpu_freq_uni)
+	config.use_unified_voltages(voltage_uni)
+
+	config.translate_hdmi_mode(raw_hdmi_mode)
+	config.include_option()
+
+	file = open(config.configfile, 'w')
+	file.write(config.generated_config)
+	file.close()
+
 #Populate the config with all of the supported
 #settings defined in our conf file
 for option in rpiconf.options:
@@ -329,22 +341,36 @@ class Handler:
 ###End Performance tuning options######################################
 	def onDeleteWindow(self, *args):
 		Gtk.main_quit(*args)
+	def on_quit(self, *args):
+		Gtk.main_quit(*args)
 	def on_show_about(self, window):
 		about.show_all()
 	def on_about_close(sefl, window, name):
 		about.hide()
 
+	def add_filters(self, dialog):
+		filter_text = Gtk.FileFilter()
+		filter_text.set_name("RPi config")
+		filter_text.add_pattern("*.txt")
+		dialog.add_filter(filter_text)
+
+	def on_save_as(self, widget):
+		dialog = Gtk.FileChooserDialog("Please choose a file", window,
+			Gtk.FileChooserAction.SAVE,
+			(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+			Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
+
+		self.add_filters(dialog)
+
+		response = dialog.run()
+		if response == Gtk.ResponseType.OK:
+			config.filename = dialog.get_filename()
+			save()
+
+		dialog.destroy()
+
 	def on_save(self, menu):
-		config.overscan_state()
-		config.use_unified_freq(gpu_freq_uni)
-		config.use_unified_voltages(voltage_uni)
-
-		config.translate_hdmi_mode(raw_hdmi_mode)
-		config.include_option()
-
-		file = open(config.configfile, 'w')
-		file.write(config.generated_config)
-		file.close()
+		save()
 
 
 builder.connect_signals(Handler())
