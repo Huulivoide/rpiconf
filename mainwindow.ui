@@ -8,7 +8,7 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="program_name">Rpiconf</property>
-    <property name="version">Version: 0.1</property>
+    <property name="version">Version: 0.80</property>
     <property name="copyright" translatable="yes">Copyright (c) 2012, Jaara Jesse Juhani
 All rights reserved.
 This piece of software is licensed under
