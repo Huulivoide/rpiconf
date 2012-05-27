@@ -10,6 +10,13 @@ http://huulivoide.pp.fi/public/rpiconf
 TODO:  
 * Add gettext support and translate into Finnish. Also optimize layout to better fit translated strings.
 * Implemet error handling (non writable filesystem...)
+* Check tuning options' sanity, display a warning if value is too high/low
+* Add the 86 new monitor modes XD
+* Add HDMI force hotplug swich
+* Add kernel tab for the new boot option settings.
+* Add a commandline client too. (ncurses dialog)
+* Add launcher to choose between gtk/ncurses, default to GTK is $SCREEN is set
+* Add restore defaults button.
 
 ###License  
 This piece of software is given to you under the following license  
