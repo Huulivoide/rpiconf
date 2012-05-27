@@ -23,6 +23,8 @@ raw_hdmi_mode = ['AUTO', ''] #One for resolution, one for refreshrate
 advanced = False
 test = False
 l2 = False
+fuse = False
+fuse_warned = False
 #When true use the unified gpu chip frequency changing
 gpu_freq_uni = True
 voltage_uni = True
@@ -83,6 +85,20 @@ else:
 
 #Read the config file into memory
 config.read_config()
+
+warning_fuse = "WARNING: You are modifying the Raspberry Pi's voltages! \
+This should be safe if only small change is made. But it WILL void your \
+warranty! You have been warned!!"
+def blow_fuse():
+	global fuse
+	global fuse_warned
+	fuse = True
+	if fuse_warned == False:
+		dialog = Gtk.MessageDialog(window, 0, 
+		Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, warning_fuse)
+		dialog.run()
+		dialog.destroy()
+		fuse_warned = True
 
 def ratelist_name(mode):
 	global advanced
@@ -314,15 +330,20 @@ class Handler:
 
 	def on_core_voltage_change(sefl, spin):
 		config.over_voltage = spin.get_value_as_int()
+		blow_fuse()
 	def on_sdram_voltage_change(sefl, spin):
 		config.over_voltage_sdram = spin.get_value_as_int()
+		blow_fuse()
 
 	def on_sdramc_voltage_change(sefl, spin):
 		config.over_voltage_sdram_c = spin.get_value_as_int()
+		blow_fuse()
 	def on_sdramp_voltage_change(sefl, spin):
 		config.over_voltage_sdram_p = spin.get_value_as_int()
+		blow_fuse()
 	def on_sdrami_voltage_change(sefl, spin):
 		config.over_voltage_sdram_i = spin.get_value_as_int()
+		blow_fuse()
 
 	def on_test_change(self, button):
 		global test
@@ -358,7 +379,7 @@ class Handler:
 		dialog = Gtk.FileChooserDialog("Please choose a file", window,
 			Gtk.FileChooserAction.SAVE,
 			(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
-			Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
+			Gtk.STOCK_SAVE, Gtk.ResponseType.OK))
 
 		self.add_filters(dialog)
 
