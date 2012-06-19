@@ -438,6 +438,7 @@ and 1080p for Full HD marked TVs.
 In general you should prefer the Xp
 modes over the Xi modes.</property>
                     <items>
+                      <item>AUTO</item>
                       <item>VGA</item>
                       <item>240p</item>
                       <item>288p</item>
@@ -448,7 +449,29 @@ modes over the Xi modes.</property>
                       <item>720p</item>
                       <item>1080i</item>
                       <item>1080p</item>
-                      <item>AUTO</item>
+                      <item>640x350</item>
+                      <item>640x400</item>
+                      <item>640x480</item>
+                      <item>720x400</item>
+                      <item>800x600</item>
+                      <item>848x480</item>
+                      <item>1024x768</item>
+                      <item>1152x864</item>
+                      <item>1280x768</item>
+                      <item>1280x800</item>
+                      <item>1280x960</item>
+                      <item>1280x1024</item>
+                      <item>1360x768</item>
+                      <item>1366x768</item>
+                      <item>1400x1050</item>
+                      <item>1440x900</item>
+                      <item>1600x1200</item>
+                      <item>1680x1050</item>
+                      <item>1792x1344</item>
+                      <item>1856x1392</item>
+                      <item>1920x1200</item>
+                      <item>1920x1440</item>
+                      <item>2560x1600</item>
                     </items>
                     <signal name="changed" handler="on_resolution_change" swapped="no"/>
                   </object>
